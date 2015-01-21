@@ -1,7 +1,8 @@
-# Ui
+# Caliopen.Ui
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+[CaliOpen](https://caliopen.org)'s User Interface project.
+
+This project is an Ember application.
 
 ## Prerequisites
 
