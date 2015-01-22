@@ -2,9 +2,9 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'ui',
+    modulePrefix: 'caliopen.ui',
     environment: environment,
-    baseURL: '/',
+    baseURL: '/app/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
