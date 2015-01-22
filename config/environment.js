@@ -3,6 +3,8 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'caliopen.ui',
+    podModulePrefix: 'caliopen.ui/pods',
+    usePodsByDefault: true,
     environment: environment,
     baseURL: '/app/',
     locationType: 'auto',
@@ -16,6 +18,7 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      defaultLocale: 'en'
     }
   };
 
