@@ -1,7 +1,8 @@
 {
-  "name": "ui",
+  "name": "caliopen.ui",
   "version": "0.0.0",
-  "description": "Small description for ui goes here",
+  "description": "CaliOpen UI is the user interface for CaliOpen.",
+  "homepage": "https://caliopen.org/",
   "private": true,
   "directories": {
     "doc": "doc",
