@@ -2,6 +2,9 @@
     <ul>
         <li>{{ model.currentUser.name }}</li>
         <li>
+            {{#link-to 'mails'}}{{t header.menu.mails}}{{/link-to}}
+        </li>
+        <li>
             <a href="/signout">{{t header.menu.signout}}</a>
         </li>
     </ul>

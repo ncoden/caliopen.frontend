@@ -1,10 +1,19 @@
 export default {
     "header": {
         "menu": {
+            "mails": "Mails",
             "signout": "Log Out"
         }
     },
-    "footer": {
-        "moto": "CaliOpen, Be Good"
+
+    "application": {
+        "footer": {
+            "moto": "CaliOpen, Be Good"
+        }
+    },
+
+    "mails": {
+        "title": "Mails"
     }
+
 };
