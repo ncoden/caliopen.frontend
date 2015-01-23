@@ -1,6 +1,6 @@
 <nav>
     <ul>
-        <li>{{ model.currentUser.name }}</li>
+        <li>{{ currentUser.name }}</li>
         <li>
             {{#link-to 'mails'}}{{t header.menu.mails}}{{/link-to}}
         </li>
@@ -9,3 +9,4 @@
         </li>
     </ul>
 </nav>
+{{yield}}
