@@ -1,4 +1,4 @@
-# Caliopen.Ui
+# Caliopen.Frontend
 
 [CaliOpen](https://caliopen.org)'s User Interface project.
 
@@ -16,7 +16,7 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone https://github.com/CaliOpen/caliopen.ui.git` ui
+* `git clone https://github.com/CaliOpen/caliopen.frontend.git` ui
 * cd ui
 * `./bin/install`
 
