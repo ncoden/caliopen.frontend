@@ -58,6 +58,8 @@ function install {
     check_deps
     install_npm
     install_bower
+    log "Initial release for frontend code."
+    npm run release
 }
 
 install
