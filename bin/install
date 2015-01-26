@@ -54,12 +54,17 @@ function install_bower {
     bower install
 }
 
+function initial_build {
+    log "Initial release .for frontend code."
+    [[ -z "${NODE_ENVIRONMENT}" ]] && NODE_ENVIRONMENT="production"
+    npm run build --environment "${NODE_ENVIRONMENT}"
+}
+
 function install {
     check_deps
     install_npm
     install_bower
-    log "Initial release for frontend code."
-    npm run release
+    initial_build
 }
 
 install
