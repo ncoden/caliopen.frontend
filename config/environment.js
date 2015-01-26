@@ -11,13 +11,16 @@ module.exports = function(environment) {
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
-        // e.g. 'with-controller': true
+        // https://github.com/emberjs/ember.js/blob/master/FEATURES.md
+        // Waiting for 0.11 to have those active
+        //'ember-htmlbars-component-generation': true,
+        //'ember-htmlbars-attribute-syntax': true
       }
     },
 
     APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
+      // Configure ember-cli-i18n. For further information, see
+      // https://github.com/dockyard/ember-cli-i18n#configuration
       defaultLocale: 'en'
     }
   };
