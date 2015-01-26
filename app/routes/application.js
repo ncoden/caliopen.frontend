@@ -2,7 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
     model: function () {
-        console.log('Hello');
         return {
             currentUser: { name: 'John Doe' }
         };
@@ -10,6 +9,7 @@ export default Ember.Route.extend({
 
     actions: {
         error: function () {
+            console.log(arguments);
             this.transitionTo('catchall', "application-error");
         }
     },
