@@ -1,5 +1,8 @@
 # Caliopen.Frontend
 
+[![Build
+Status](https://travis-ci.org/CaliOpen/caliopen.frontend.svg)](https://travis-ci.org/CaliOpen/caliopen.frontend)
+
 [CaliOpen](https://caliopen.org)'s User Interface project.
 
 This project is an Ember application.
