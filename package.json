@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "ember server",
-    "dev": "ember server --proxy http://0.0.0.0:6543 --port 4200",
+    "dev": "ember server --port 4200",
     "build": "ember build",
     "test": "ember test"
   },
