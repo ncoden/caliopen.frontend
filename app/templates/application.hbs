@@ -1,9 +1,13 @@
-<header>
-    {{ menu-header currentUser=model.currentUser }}
-</header>
+<div class="caliopen-layout">
+    <header class="caliopen-layout__header">
+        {{ menu-header currentUser=model.currentUser }}
+    </header>
 
-{{outlet}}
+    <section role="main" class="caliopen-layout__main">
+        {{outlet}}
+    </section>
 
-<footer>
-    <p>{{t application.footer.moto }}</p>
-</footer>
+    <footer class="caliopen-layout__footer">
+        <p class="caliopen-layout__footer-headline">{{t application.footer.moto }}</p>
+    </footer>
+</div>
