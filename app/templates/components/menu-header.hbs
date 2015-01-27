@@ -12,19 +12,15 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li>
-                    {{#link-to 'mails'}}{{t header.menu.mails}}{{/link-to}}
-                </li>
-                <li>
-                    {{#link-to 'contacts'}}{{t header.menu.contacts}}{{/link-to}}
-                </li>
+                {{#navigation-list-item route='mails' }}{{t header.menu.mails}}{{/navigation-list-item}}
+                {{#navigation-list-item route='contacts' }}{{t header.menu.contacts}}{{/navigation-list-item}}
             </ul>
              <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ currentUser.name }} <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li>{{#link-to 'settings.account'}}{{t header.menu.account}}{{/link-to}}</li>
-                        <li>{{#link-to 'settings.app'}}{{t header.menu.settings}}{{/link-to}}</li>
+                        {{#navigation-list-item route='settings.account' }}{{t header.menu.account}}{{/navigation-list-item}}
+                        {{#navigation-list-item route='settings.app' }}{{t header.menu.settings}}{{/navigation-list-item}}
                         <li class="divider"></li>
                         <li><a href="/signout">{{t header.menu.signout}}</a></li>
                     </ul>
