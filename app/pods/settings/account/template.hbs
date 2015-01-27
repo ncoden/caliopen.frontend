@@ -1,7 +1,11 @@
 {{#main-title}}{{t settings.account.title }}{{/main-title}}
-<ul class="nav nav-tabs">
-    {{#navigation-list-item route='settings.account.profile' }}{{t 'settings.account.menu.profile' }}{{/navigation-list-item}}
-    {{#navigation-list-item route='settings.account.privacy' }}{{t 'settings.account.menu.privacy' }}{{/navigation-list-item}}
-    {{#navigation-list-item route='settings.account.security' }}{{t 'settings.account.menu.security' }}{{/navigation-list-item}}
-</ul>
-{{outlet}}
+<div class="settings-account">
+    <ul class="nav nav-tabs settings-account__navigation">
+        {{#navigation-list-item route='settings.account.profile' }}{{t 'settings.account.menu.profile' }}{{/navigation-list-item}}
+        {{#navigation-list-item route='settings.account.privacy' }}{{t 'settings.account.menu.privacy' }}{{/navigation-list-item}}
+        {{#navigation-list-item route='settings.account.security' }}{{t 'settings.account.menu.security' }}{{/navigation-list-item}}
+    </ul>
+    <div class="settings-account__settings">
+        {{outlet}}
+    </div>
+</div>
