@@ -2,6 +2,7 @@ export default {
     "header": {
         "menu": {
             "mails": "Mails",
+            "contacts": "Contacts",
             "account": "Account",
             "settings": "Settings",
             "signout": "Log Out"
@@ -18,8 +19,13 @@ export default {
         "title": "Mails"
     },
 
+    "contacts": {
+        "title": "Contacts"
+    },
+
     "settings": {
         "account": {
+            "title": "About Me",
             "menu": {
                 "profile": "Profile",
                 "privacy": "Privacy",
@@ -36,6 +42,7 @@ export default {
             }
         },
         "app": {
+            "title": "Application Settings",
             "menu": {
                 "none": "No settings panel for now"
             }
