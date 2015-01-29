@@ -1,14 +1,29 @@
 /* global require, module */
 
-var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var EmberApp = require('ember-cli/lib/broccoli/ember-app'),
+    isProduction = EmberApp.env() === 'production';
 
 var app = new EmberApp({
   lessOptions: {
     paths: [
       'bower_components/bootstrap/less'
-    ]
+  },
+  outputPaths: {
+        app: {
+            // this is the expected output for caliopen.web
+            html: isProduction ? 'frontend/index.html' : 'index.html'
+        }
   }
 });
+
+if (isProduction) {
+  // Force asset prefix for production, ie: when served by python app
+  app.options.inlineContent = {
+    assetPrefix: {
+      content:  '/frontend/'
+    }
+  };
+}
 
 // Use `app.import` to add additional libraries to the generated
 // output files.
