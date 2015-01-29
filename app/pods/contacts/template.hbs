@@ -2,11 +2,22 @@
     {{#main-title}}{{t contacts.title}}{{/main-title}}
     {{outlet}}
     {{#co-contact-list contacts=contacts}}
+
         {{#each model as |contact|}}
+
         {{#co-contact-list-item contact=contact}}
+
           {{co-contact-card-avatar contact=contact}}
-          {{contact.firstname}} {{contact.lastname}}
+
+          {{#co-contact-card-title}}
+          {{contact.fullname}}
+          {{/co-contact-card-title}}
+
+          {{co-contact-card-icons contact=contact}}
+
         {{/co-contact-list-item}}
+
         {{/each}}
+
     {{/co-contact-list}}
 </div>
