@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForComponent('navigation-list-item', 'NavigationListItemComponent', {
+moduleForComponent('co-navigation-list-item', 'NavigationListItemComponent', {
   // specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar']
 });
