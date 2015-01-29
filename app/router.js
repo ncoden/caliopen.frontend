@@ -6,7 +6,12 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route("mails");
+  this.resource("messages", function() {
+    this.route("show", {path: "/:message_id/show"}, function () {});
+  });
+  this.resource("contacts", function() {
+    this.route("show", {path: "/:contact_id/show"});
+  });
   this.route("settings", function() {
     this.route("account", function() {
       this.route("profile");
@@ -19,7 +24,6 @@ Router.map(function() {
     });
     this.route("app");
   });
-  this.resource("contacts", function() {});
   this.route("catchall", {path: '/*wildcard'});
 });
 

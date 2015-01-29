@@ -1,0 +1,11 @@
+{{#main-title}}{{t messages.index.title }}{{/main-title}}
+<ul>
+    {{#each model as |conversation|}}
+    <li>
+    {{#link-to 'messages.show' conversation}}
+    {{co-icon icon="paperclip"}} {{conversation.title}}
+    {{/link-to}}
+    </li>
+    {{/each}}
+</ul>
+{{outlet}}

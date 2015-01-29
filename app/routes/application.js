@@ -14,6 +14,17 @@ export default Ember.Route.extend({
             this.transitionTo('catchall', 'unhandled-error');
         }
     },
+    /**
+     * Default behaviour when landing to settings is to redirect to account
+     * settings.
+     *
+     * Taken from https://gist.github.com/nikpachoo/7369913#file-ember-redirect-js-L40
+     */
+    redirect: function(model, transition) {
+      if( transition.targetName === 'index'  ) {
+        this.transitionTo('messages');
+      }
+    },
 
     setupController: function(controller, model) {
         controller.set('model', model);

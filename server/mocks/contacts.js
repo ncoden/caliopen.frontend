@@ -5,8 +5,8 @@ module.exports = function(app) {
   contactsRouter.get('/', function(req, res) {
     res.send({
       'contacts': [
-        {id: 'XYZ', firstname: 'John', lastname: 'Doe'},
-        {id: 'XXX', firstname: 'Jane', lastname: 'Doe'}
+        {contact_id: 'XYZ', firstname: 'John', lastname: 'Doe'},
+        {contact_id: 'XXX', firstname: 'Jane', lastname: 'Doe'}
       ]
     });
   });
@@ -18,7 +18,7 @@ module.exports = function(app) {
   contactsRouter.get('/:id', function(req, res) {
     res.send({
       'contacts': {
-        id: req.params.id
+        contact_id: req.params.id
       }
     });
   });
@@ -26,7 +26,7 @@ module.exports = function(app) {
   contactsRouter.put('/:id', function(req, res) {
     res.send({
       'contacts': {
-        id: req.params.id
+        contact_id: req.params.id
       }
     });
   });

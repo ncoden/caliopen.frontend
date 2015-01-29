@@ -5,7 +5,7 @@ module.exports = function(app) {
   messagesRouter.get('/', function(req, res) {
     res.send({
       'messages': [
-        {id: 'XYZ', title: 'Blabla'}
+        {message_id: 'XYZ', title: 'Blabla'}
       ]
     });
   });
@@ -17,7 +17,7 @@ module.exports = function(app) {
   messagesRouter.get('/:id', function(req, res) {
     res.send({
       'messages': {
-        id: req.params.id
+       message_id: req.params.id
       }
     });
   });
@@ -25,7 +25,7 @@ module.exports = function(app) {
   messagesRouter.put('/:id', function(req, res) {
     res.send({
       'messages': {
-        id: req.params.id
+        message_id: req.params.id
       }
     });
   });

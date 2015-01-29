@@ -1,9 +1,0 @@
-<div class="container-fluid">
-    {{#main-title}}{{t mails.title }}{{/main-title}}
-    {{outlet}}
-    <ul>
-      {{#each model as |conversation|}}
-      <li>{{co-icon icon="paperclip"}} {{conversation.title}}</li>
-      {{/each}}
-    </ul>
-</div>
