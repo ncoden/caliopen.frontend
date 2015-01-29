@@ -8,9 +8,11 @@ export default Ember.Component.extend({
   attributeBindings: ['src'],
 
   src: function () {
-    return this.contact.avatar_url
-            ? this.contact.avatar_url
-            : 'http://placehold.it/50x50'
+    if (this.contact.avatar_url) {
+      return this.contact.avatar_url;
+    }
+
+    return 'http://placehold.it/50x50';
   }.property('contact'),
 
   classNames: ['co-contact-card__avatar']
