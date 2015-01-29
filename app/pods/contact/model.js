@@ -13,6 +13,10 @@ export default DS.Model.extend({
   ims: DS.hasMany('contact-im'),
   identities: DS.hasMany('contact-identity'),
   organizations: DS.hasMany('contact-organization'),
-  keys: DS.hasMany('contact-key')
+  keys: DS.hasMany('contact-key'),
+
+  fullname: function () {
+    return `${this.get('firstname')} ${this.get('lastname')}`;
+  }.property('firstname', 'lastname')
 
 });
