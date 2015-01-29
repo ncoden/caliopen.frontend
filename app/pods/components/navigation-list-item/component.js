@@ -34,7 +34,7 @@ export default Ember.Component.extend({
         return this.get('childViews').isAny('active');
     }.property('childViews.@each.active'),
 
-    route: null,
+    route: 'index',
 
     willInsertElement: function () {
         Ember.assert('route parameter is mandatory', this.get('route'));
