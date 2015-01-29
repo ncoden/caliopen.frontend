@@ -5,7 +5,7 @@ import {
 
 moduleForComponent('menu-header', 'MenuHeaderComponent', {
   // specify the other units that are required for this test
-  // needs: ['component:foo', 'helper:bar']
+  needs: ['component:co-icon', 'component:navigation-list-item', 'helper:t']
 });
 
 test('it renders', function() {
