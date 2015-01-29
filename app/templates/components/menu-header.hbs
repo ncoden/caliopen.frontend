@@ -12,8 +12,15 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                {{#navigation-list-item route='mails' }}{{t header.menu.mails}}{{/navigation-list-item}}
-                {{#navigation-list-item route='contacts' }}{{t header.menu.contacts}}{{/navigation-list-item}}
+
+              {{#navigation-list-item route='mails' }}
+              {{co-icon icon="envelope"}} {{t header.menu.mails}}
+              {{/navigation-list-item}}
+
+              {{#navigation-list-item route='contacts' }}
+              {{co-icon icon="user"}} {{t header.menu.contacts}}
+              {{/navigation-list-item}}
+
             </ul>
              <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
