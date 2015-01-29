@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForComponent('menu-header', 'MenuHeaderComponent', {
+moduleForComponent('co-menu-top', 'CoMenuTopComponent', {
   // specify the other units that are required for this test
   needs: [
     'component:co-icon',
