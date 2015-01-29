@@ -8,9 +8,10 @@ export default Ember.Route.extend({
     },
 
     actions: {
-        error: function () {
-            console.log(arguments);
-            this.transitionTo('catchall', "application-error");
+        error: function (err) {
+            // FIXME find a way to
+            console.log('err:', err);
+            this.transitionTo('catchall', 'unhandled-error');
         }
     },
 
