@@ -7,6 +7,8 @@ var app = new EmberApp({
   lessOptions: {
     paths: [
       'bower_components/bootstrap/less'
+    ],
+    sourceMap: true
   },
   outputPaths: {
         app: {
@@ -50,5 +52,12 @@ app.import('bower_components/bootstrap/js/tooltip.js');
 app.import('bower_components/bootstrap/js/popover.js');
 app.import('bower_components/bootstrap/js/scrollspy.js');
 app.import('bower_components/bootstrap/js/tab.js');
+
+// Import bootstrap fonts
+app.import('bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot', {destDir: 'fonts'});
+app.import('bower_components/bootstrap/fonts/glyphicons-halflings-regular.svg', {destDir: 'fonts'});
+app.import('bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf', {destDir: 'fonts'});
+app.import('bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff', {destDir: 'fonts'});
+app.import('bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff2', {destDir: 'fonts'});
 
 module.exports = app.toTree();
