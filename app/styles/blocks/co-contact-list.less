@@ -1,18 +1,74 @@
-@contact-card-list-item-padding: 10px;
-@contact-card-list-item-margin: 10px 10px 0 0;
-@contact-card-list-item-border: @panel-inner-border;
-@contact-card-list-item-order-radius: @panel-border-radius;
 
-.co-contact-card-list {
+@contact-list-item-padding:         10px;
+@contact-list-item-margin:          10px 10px 0 0;
+@contact-list-item-border:          @panel-inner-border;
+@contact-list-item-border-radius:   @panel-border-radius;
+
+@contact-card-avatar-height:        50px;
+@contact-card-avatar-width:         50px;
+@contact-card-avatar-margin:        @contact-list-item-padding;
+
+@contact-card-title-font-size:      @font-size-base * 1.2;
+
+@contact-card-icons-margin:         @contact-list-item-padding;
+
+.co-contact-list {
   font-size: 0;
 }
-.co-contact-card-list__item {
+
+.co-contact-list__item {
+  position: relative;
+
   display: inline-block;
 
-  padding: @contact-card-list-item-padding;
-  margin: @contact-card-list-item-margin;
-  border: 1px solid @contact-card-list-item-border;
-  border-radius: @contact-card-list-item-order-radius;
+  min-height: @contact-card-avatar-height + 2 * @contact-card-avatar-margin + 2 /* border */;
+
+  padding: @contact-list-item-padding;
+  margin: @contact-list-item-margin;
+  border: 1px solid @contact-list-item-border;
+  border-radius: @contact-list-item-border-radius;
+
+  font-size: 1rem;
+}
+
+.co-contact-list__card-avatar {
+  position: absolute;
+  display: block;
+
+  width: @contact-card-avatar-width;
+  height: @contact-card-avatar-height;
+
+  top: @contact-card-avatar-margin;
+  left: @contact-card-avatar-margin;
+}
+
+.co-contact-list__card-title {
+  display: block;
+
+  padding: 0;
+  margin: 0 0 0 (@contact-card-avatar-width + 2 * @contact-card-avatar-margin - @contact-list-item-padding);
+
+  height: @contact-card-avatar-height;
+
+  font-size: @contact-card-title-font-size;
+  line-height: @contact-card-avatar-height;
+}
+
+.co-contact-list__card-icons {
+  position: absolute;
+  display: block;
+
+  bottom: @contact-card-icons-margin;
+  right: @contact-card-icons-margin;
+
+  padding: 0;
+  margin: 0;
+
+  font-size: 0;
+}
+
+.co-contact-list__card-icons__icon {
+  display: inline-block;
 
   font-size: 1rem;
 }

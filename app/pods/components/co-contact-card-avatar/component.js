@@ -17,5 +17,5 @@ export default Ember.Component.extend({
     return this.get('defaultImage');
   }.property('contact'),
 
-  classNames: ['co-contact-card__avatar']
+  classNames: ['co-contact-list__card-avatar']
 });

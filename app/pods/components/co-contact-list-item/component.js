@@ -5,5 +5,5 @@ export default Ember.Component.extend({
 
   contact: null,
 
-  classNames: ['co-contact-card-list__item']
+  classNames: ['co-contact-list__item']
 });

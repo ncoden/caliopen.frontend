@@ -1,8 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  contacts: null,
 
-  classNames: ['co-contact-list']
+  tagName: 'h3',
+
+  classNames: ['co-contact-list__card-title']
 
 });
