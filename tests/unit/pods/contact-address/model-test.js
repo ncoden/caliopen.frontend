@@ -5,7 +5,16 @@ import {
 
 moduleForModel('contact-address', 'ContactAddress', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: [
+    'model:contact',
+    'model:contact-address',
+    'model:contact-phone',
+    'model:contact-email',
+    'model:contact-identity',
+    'model:contact-im',
+    'model:contact-key',
+    'model:contact-organization',
+    ]
 });
 
 test('it exists', function() {

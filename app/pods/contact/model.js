@@ -7,12 +7,12 @@ export default DS.Model.extend({
   firstname: DS.attr('string'),
   lastname: DS.attr('string'),
 
-  adresses: DS.hasMany('contactAddress'),
-  phones: DS.hasMany('contactPhone'),
-  emails: DS.hasMany('contactEmail'),
-  ims: DS.hasMany('contactIm'),
-  identities: DS.hasMany('contactIdentity'),
-  organizations: DS.hasMany('contactOrganization'),
-  keys: DS.hasMany('contactKey')
+  adresses: DS.hasMany('contact-address'),
+  phones: DS.hasMany('contact-phone'),
+  emails: DS.hasMany('contact-email'),
+  ims: DS.hasMany('contact-im'),
+  identities: DS.hasMany('contact-identity'),
+  organizations: DS.hasMany('contact-organization'),
+  keys: DS.hasMany('contact-key')
 
 });
