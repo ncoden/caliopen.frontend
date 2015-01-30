@@ -11,7 +11,7 @@ moduleFor('adapter:contact', 'ContactAdapter', {
     'model:contact-phone',
     'model:contact-email',
     'model:contact-identity',
-    'model:contact-im',
+    'model:contact/im',
     'model:contact-key',
     'model:contact-organization',
   ]

@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForModel('contact-im', 'ContactIm', {
+moduleForModel('contact/im', 'ContactIm', {
   // Specify the other units that are required for this test.
   needs: [
     'model:contact',
@@ -11,7 +11,7 @@ moduleForModel('contact-im', 'ContactIm', {
     'model:contact-phone',
     'model:contact-email',
     'model:contact-identity',
-    'model:contact-im',
+    'model:contact/im',
     'model:contact-key',
     'model:contact-organization',
   ]
