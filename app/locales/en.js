@@ -1,7 +1,7 @@
 export default {
     "header": {
         "menu": {
-            "mails": "Mails",
+            "messages": "Messages",
             "contacts": "Contacts",
             "account": "Account",
             "settings": "Settings",

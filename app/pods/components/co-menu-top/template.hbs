@@ -13,27 +13,20 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
 
-              {{#co-navigation-list-item route='messages' }}
-              {{co-icon icon="envelope"}} {{t header.menu.mails}}
-              {{/co-navigation-list-item}}
-
-              {{#co-navigation-list-item route='contacts' }}
-              {{co-icon icon="user"}} {{t header.menu.contacts}}
-              {{/co-navigation-list-item}}
-
             </ul>
              <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ currentUser.name }} <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
 
-                        {{#co-navigation-list-item route='settings.account' }}
-                        {{t header.menu.account}}
+                        {{#co-navigation-list-item}}
+                        {{#link-to "settings.account"}}{{t header.menu.account}}{{/link-to}}
                         {{/co-navigation-list-item}}
 
-                        {{#co-navigation-list-item route='settings.app' }}
-                        {{t header.menu.settings}}
+                        {{#co-navigation-list-item}}
+                        {{#link-to "settings.app"}}{{t header.menu.settings}}{{/link-to}}
                         {{/co-navigation-list-item}}
+
                         <li class="divider"></li>
                         <li><a href="/signout">{{t header.menu.signout}}</a></li>
                     </ul>

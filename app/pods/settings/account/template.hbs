@@ -1,11 +1,23 @@
 {{#main-title}}{{t settings.account.title }}{{/main-title}}
 <div class="settings-account">
-    <ul class="nav nav-tabs settings-account__navigation">
-        {{#co-navigation-list-item route='settings.account.profile' }}{{t 'settings.account.menu.profile' }}{{/co-navigation-list-item}}
-        {{#co-navigation-list-item route='settings.account.privacy' }}{{t 'settings.account.menu.privacy' }}{{/co-navigation-list-item}}
-        {{#co-navigation-list-item route='settings.account.security' }}{{t 'settings.account.menu.security' }}{{/co-navigation-list-item}}
-    </ul>
-    <div class="settings-account__settings">
-        {{outlet}}
-    </div>
+  <ul class="nav nav-tabs settings-account__navigation">
+    {{#co-navigation-list-item}}
+      {{#link-to "settings.account.profile" }}
+      {{t 'settings.account.menu.profile' }}
+      {{/link-to}}
+    {{/co-navigation-list-item}}
+    {{#co-navigation-list-item}}
+      {{#link-to "settings.account.privacy" }}
+      {{t 'settings.account.menu.privacy' }}
+      {{/link-to}}
+    {{/co-navigation-list-item}}
+    {{#co-navigation-list-item}}
+      {{#link-to "settings.account.security" }}
+      {{t 'settings.account.menu.security' }}
+      {{/link-to}}
+    {{/co-navigation-list-item}}
+  </ul>
+  <div class="settings-account__settings">
+      {{outlet}}
+  </div>
 </div>
