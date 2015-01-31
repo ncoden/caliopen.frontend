@@ -7,6 +7,7 @@
 @footer-color:          @navbar-default-color;
 @footer-background:     @navbar-default-bg;
 @footer-border:         @navbar-default-border;
+@menu-width:            70px;
 
 .caliopen-layout {
     position: absolute;
@@ -20,7 +21,16 @@
     // See http://getbootstrap.com/components/#navbar-fixed-top
     padding-top: 70px;
 }
+.caliopen-layout__menu {
+    position: absolute;
+    left: 0;
+    width: @menu-width;
+    top: 50px;
+    bottom: @footer-height;
+    z-index: 10;
+}
 .caliopen-layout__main {
+    margin-left: @menu-width;
     // push body content to make sure content doesn't overflow footer.
     padding-bottom: @footer-height;
 }

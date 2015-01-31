@@ -3,6 +3,11 @@
         {{ co-menu-top currentUser=model.currentUser }}
     </header>
 
+    <section class="caliopen-layout__menu">
+        {{#co-nav-main}}
+        {{/co-nav-main}}
+    </section>
+
     <section role="main" class="caliopen-layout__main">
         {{outlet}}
     </section>
