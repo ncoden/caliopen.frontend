@@ -46,6 +46,7 @@ export default Ember.Component.extend({
     classNames: [],
     classNameBindings: ['active'],
 
+    // properties
     active: function(){
         return this.get('childViews').isAny('active');
     }.property('childViews.@each.active'),
@@ -53,5 +54,23 @@ export default Ember.Component.extend({
     // On click send the component action
     click: function () {
       this.sendAction();
+    },
+
+    /**
+     * Helper funciton to navigate to the first LinkView route.
+     *
+     * Call this to chang current view.
+     */
+    navigateToFirstLink: function (e) {
+      // Look for every Ember.LinkView in the child views
+      var linkViews = this
+                        .get('childViews')
+                        .filter(function (view) {
+                          return view instanceof Ember.LinkView;
+                        });
+
+      if (linkViews.length) {
+        linkViews[0].trigger('click', e);
+      }
     }
 });
