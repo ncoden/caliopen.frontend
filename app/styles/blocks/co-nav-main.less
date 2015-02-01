@@ -4,12 +4,103 @@
 // Main navigation is responsible for the main level navigation.
 //
 // It handles both navigation between applications and main level actions.
+//
+// It is composed of 2 blocks, applications and actions.
+
+@co-nav-main-item-width:     50px;
+@co-nav-main-item-spacing:   10px;
+
+
 .co-nav-main {
     position: absolute;
     bottom: 0;
     top: 0;
-    right: 0;
     left: 0;
 
     background: rgba(60, 60, 60, .8);
+
+    &-applications,
+    &-actions {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    &-applications {
+    }
+
+    &-actions {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+}
+
+
+.co-nav-main__menu-item() {
+    margin: @co-nav-main-item-spacing;
+}
+
+.co-nav-main__menu-icon() {
+
+    width: @co-nav-main-item-width;
+    font-size: 30px;
+
+    line-height: 50px;
+    text-align: center;
+
+    opacity: .8;
+
+    border-radius: 50%;
+
+    color: #fff;
+
+}
+
+.co-nav-main__menu-icon_hover() {
+    box-shadow: 1px 1px 12px #bbb;
+    opacity: 1;
+}
+
+.co-nav-main__menu-icon_active() {
+    box-shadow: 1px 1px 12px #999;
+    opacity: 1;
+}
+
+
+
+.co-nav-main-applications {
+    &__application {
+        .co-nav-main__menu-item;
+    }
+    &__application__icon {
+        .co-nav-main__menu-icon;
+        background: #33CCFF;
+    }
+
+    &__application.active &__application__icon {
+        .co-nav-main__menu-icon_active;
+        background: #F76548;
+    }
+
+    &__application:hover &__application__icon {
+        .co-nav-main__menu-icon_hover;
+    }
+}
+.co-nav-main-actions {
+    &__action {
+        .co-nav-main__menu-item;
+    }
+    &__action__icon {
+        .co-nav-main__menu-icon;
+        background: #F76548;
+    }
+    &__action.active &__action__icon {
+        .co-nav-main__menu-icon_active;
+        background: #F76548;
+    }
+    &__action:hover &__action__icon {
+        .co-nav-main__menu-icon_hover;
+    }
 }

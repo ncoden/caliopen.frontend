@@ -1,18 +1,34 @@
 <div class="caliopen-layout">
-    <header class="caliopen-layout__header">
-        {{ co-menu-top currentUser=model.currentUser }}
-    </header>
+  <header class="caliopen-layout__header">
+    {{ co-menu-top currentUser=model.currentUser }}
+  </header>
 
-    <section class="caliopen-layout__menu">
-        {{#co-nav-main}}
-        {{/co-nav-main}}
-    </section>
+  <section class="caliopen-layout__menu">
+    {{#co-nav-main}}
 
-    <section role="main" class="caliopen-layout__main">
-        {{outlet}}
-    </section>
+      {{#co-nav-main/applications}}
+        {{#co-nav-main/applications/application icon="envelope"}}
+        {{#link-to "messages"}}{{t header.menu.messages}}{{/link-to}}
+        {{/co-nav-main/applications/application}}
+        {{#co-nav-main/applications/application icon="user"}}
+        {{#link-to "contacts"}}{{t header.menu.contacts}}{{/link-to}}
+        {{/co-nav-main/applications/application}}
+      {{/co-nav-main/applications}}
 
-    <footer class="caliopen-layout__footer">
-        <p class="caliopen-layout__footer-headline">{{t application.footer.moto }}</p>
-    </footer>
+      {{#co-nav-main/actions}}
+        {{#co-nav-main/actions/action icon="pencil"}}
+        {{#link-to "messages"}}{{t header.menu.messages}}{{/link-to}}
+        {{/co-nav-main/actions/action}}
+      {{/co-nav-main/actions}}
+
+    {{/co-nav-main}}
+  </section>
+
+  <section role="main" class="caliopen-layout__main">
+    {{outlet}}
+  </section>
+
+  <footer class="caliopen-layout__footer">
+    <p class="caliopen-layout__footer-headline">{{t application.footer.moto }}</p>
+  </footer>
 </div>
