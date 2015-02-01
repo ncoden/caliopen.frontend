@@ -33,12 +33,13 @@
         position: absolute;
         bottom: 0;
         left: 0;
-        right: 0;
     }
 }
 
 
 .co-nav-main__menu-item() {
+    // position titles relatively
+    position: relative;
     margin: @co-nav-main-item-spacing;
 }
 
@@ -68,9 +69,49 @@
     opacity: 1;
 }
 
+.co-nav-main__menu-title() {
+    display: block;
+
+    background-color: #777;
+
+    // Hide label to animate on hover
+    max-width: 0px;
+    transition: max-width .5s ease;
+    overflow: hidden;
+
+    > span {
+        display: block;
+        vertical-align: middle;
+        padding: 0 10px;
+        font-size: 20px;
+    }
+    > span > a {
+        white-space: nowrap;
+        color: #fff;
+        text-decoration: none;
+    }
+}
+.co-nav-main__menu-title_hover() {
+    max-width: 200px;
+    transition: max-width .5s ease;
+}
+.co-nav-main__menu-title_active() {
+}
+.co-nav-main__menu-title_position-right() {
+    // start after menu
+    position:absolute;
+    left: @co-nav-main-item-width;
+    margin: @co-nav-main-item-spacing;
+
+    height: 40px;
+    line-height: 40px;
+    top: 50%;
+    margin-top: -20px;
+}
 
 
 .co-nav-main-applications {
+
     &__application {
         .co-nav-main__menu-item;
     }
@@ -78,29 +119,144 @@
         .co-nav-main__menu-icon;
         background: #33CCFF;
     }
+    &__application__title {
+        .co-nav-main__menu-title;
+        .co-nav-main__menu-title_position-right;
+    }
 
-    &__application.active &__application__icon {
+    &__application.active > &__application__icon {
         .co-nav-main__menu-icon_active;
         background: #F76548;
     }
+    &__application.active > &__application__title {
+        .co-nav-main__menu-title_active;
+    }
 
-    &__application:hover &__application__icon {
+    &__application:hover > &__application__icon {
         .co-nav-main__menu-icon_hover;
+    }
+    &__application:hover > &__application__title {
+        .co-nav-main__menu-title_hover;
     }
 }
 .co-nav-main-actions {
+    // Show one action only
+    height: @co-nav-main-item-width + 2 * @co-nav-main-item-spacing;
+    overflow: hidden;
+    width: 300px;
+    max-width: @co-nav-main-item-width + 2 * @co-nav-main-item-spacing;
     &__action {
         .co-nav-main__menu-item;
+        display: inline-block;
     }
     &__action__icon {
         .co-nav-main__menu-icon;
         background: #F76548;
     }
-    &__action.active &__action__icon {
+    &__action:last-child > &__action__icon {
+        margin: 5px 15px 5px 0;
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        font-size: 25px;
+    }
+    &__action__title {
+        .co-nav-main__menu-title;
+        .co-nav-main__menu-title_position-right;
+    }
+    &__action.active > &__action__icon {
         .co-nav-main__menu-icon_active;
         background: #F76548;
     }
-    &__action:hover &__action__icon {
-        .co-nav-main__menu-icon_hover;
+    &__action.active > &__action__title {
+        .co-nav-main__menu-title_active;
+    }
+    &:hover {
+        max-width: 300px;
+    }
+    &__action:hover > &__action__icon {
+        //.co-nav-main__menu-icon_hover;
+    }
+    &__action:hover > &__action__title {
+        //.co-nav-main__menu-title_hover;
     }
 }
+/*
+.co-nav-main-applications {
+
+    &__actions__action,
+    &-applications__application {
+        display: block;
+        position: relative;
+        margin : 10px;
+        text-align: center;
+    }
+    &__actions__action__icon,
+    &-applications__application__icon {
+        display: inline-block;
+        vertical-align: middle;
+
+
+        background: #33CCFF;
+
+        color: #fff;
+    }
+    &-applications__application__title {
+        display: block;
+        position: absolute;
+        box-sizing: border-box;
+        // Set only vertical padding,
+        // otherwiseit breaks slide in effect
+        padding: 5px 0;
+
+        left: 30px;
+
+        // vertically centered
+        top: 50%;
+        margin-top: -20px;
+        height: 40px;
+
+        background-color: rgba(60,60, 60, .7);
+
+        max-width: 0px;
+        transition: max-width .3s ease-in;
+        overflow: hidden;
+
+        a {color: #fff;}
+    }
+    &-applications__application__title__content {
+        display: block;
+        padding: 0 10px 0 30px;
+        line-height: 30px;
+        font-size: 20px;
+    }
+
+
+
+
+
+    &-applications__application.active > &-applications__application__icon {
+        box-shadow: 1px 1px 12px #999;
+        opacity: 1;
+        background: #F76548;
+    }
+
+    &-applications__application:hover > &-applications__application__icon {
+        box-shadow: 1px 1px 12px #bbb;
+        opacity: 1;
+        //text-shadow: 0 0 10px #fff,
+        //           0 0 20px #fff,
+        //           0 0 30px #fff,
+        //           0 0 40px #ff00de,
+        //           0 0 70px #ff00de,
+        //           0 0 80px #ff00de,
+        //           0 0 100px #ff00de,
+        //           0 0 150px #ff00de;
+    }
+    &-applications__application:hover > &-applications__application__title {
+        max-width: 150px;
+        transition: max-width .2s ease-in;
+        box-shadow: 1px 1px 12px #bbb;
+    }
+}
+//*/

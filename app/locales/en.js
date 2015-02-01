@@ -3,6 +3,8 @@ export default {
         "menu": {
             "messages": "Messages",
             "contacts": "Contacts",
+            "compose": "Compose",
+            "create_user": "Create User",
             "account": "Account",
             "settings": "Settings",
             "signout": "Log Out"
