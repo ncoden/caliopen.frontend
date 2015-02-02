@@ -1,1 +1,22 @@
+{{#co-nav-main/applications}}
+    {{#co-nav-main/applications/application icon="envelope"}}
+    {{#link-to "messages"}}{{t header.menu.messages}}{{/link-to}}
+    {{/co-nav-main/applications/application}}
+    {{#co-nav-main/applications/application icon="user"}}
+    {{#link-to "contacts"}}{{t header.menu.contacts}}{{/link-to}}
+    {{/co-nav-main/applications/application}}
+{{/co-nav-main/applications}}
+
+{{#co-nav-main/actions currentApplication=currentApplication}}
+    {{#co-nav-main/actions/action icon="pencil" application="messages"}}
+    {{#link-to "messages"}}{{t header.menu.compose}}{{/link-to}}
+    {{/co-nav-main/actions/action}}
+    {{#co-nav-main/actions/action icon="user" application="contacts"}}
+    {{#link-to "contacts"}}{{t header.menu.create_user}}{{/link-to}}
+    {{/co-nav-main/actions/action}}
+    {{#co-nav-main/actions/action icon="plus" application="default"}}
+    {{#link-to "contacts"}}{{t header.menu.action_default}}{{/link-to}}
+    {{/co-nav-main/actions/action}}
+{{/co-nav-main/actions}}
+
 {{yield}}

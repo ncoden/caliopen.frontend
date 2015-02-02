@@ -4,27 +4,7 @@
   </header>
 
   <section class="caliopen-layout__menu">
-    {{#co-nav-main}}
-
-      {{#co-nav-main/applications}}
-        {{#co-nav-main/applications/application icon="envelope"}}
-        {{#link-to "messages"}}{{t header.menu.messages}}{{/link-to}}
-        {{/co-nav-main/applications/application}}
-        {{#co-nav-main/applications/application icon="user"}}
-        {{#link-to "contacts"}}{{t header.menu.contacts}}{{/link-to}}
-        {{/co-nav-main/applications/application}}
-      {{/co-nav-main/applications}}
-
-      {{#co-nav-main/actions}}
-        {{#co-nav-main/actions/action icon="pencil"}}
-        {{#link-to "messages"}}{{t header.menu.compose}}{{/link-to}}
-        {{/co-nav-main/actions/action}}
-        {{#co-nav-main/actions/action icon="plus"}}
-        {{#link-to "contacts"}}{{t header.menu.create_user}}{{/link-to}}
-        {{/co-nav-main/actions/action}}
-      {{/co-nav-main/actions}}
-
-    {{/co-nav-main}}
+    {{co-nav-main currentRoute=currentPath}}
   </section>
 
   <section role="main" class="caliopen-layout__main">

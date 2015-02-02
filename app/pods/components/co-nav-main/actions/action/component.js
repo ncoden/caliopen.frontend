@@ -2,12 +2,15 @@ import NavItemComponent from '../../../co-navigation-list-item/component';
 
 export default NavItemComponent.extend({
 
-    classNames: ['co-nav-main-actions__action'],
+  classNames: ['co-nav-main-actions__action'],
 
-    icon: null,
+  attributeBindings: ['application:data-application'],
 
-    click: function (e) {
-      this.navigateToFirstLink(e);
-    }
+  icon: null,
 
+  application: null,
+
+  click: function (e) {
+    this.navigateToFirstLink(e);
+  }
 });

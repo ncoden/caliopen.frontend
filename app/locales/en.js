@@ -4,6 +4,7 @@ export default {
             "messages": "Messages",
             "contacts": "Contacts",
             "compose": "Compose",
+            "action_default": "Action",
             "create_user": "Create User",
             "account": "Account",
             "settings": "Settings",

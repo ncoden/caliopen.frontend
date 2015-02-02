@@ -45,7 +45,10 @@
 
 .co-nav-main__menu-icon() {
 
+    margin: 0;
+
     width: @co-nav-main-item-width;
+    height: @co-nav-main-item-width;
     font-size: 30px;
 
     line-height: 50px;
@@ -57,6 +60,14 @@
 
     color: #fff;
 
+}
+
+.co-nav-main__menu-icon_small() {
+    margin: 5px;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    font-size: 25px;
 }
 
 .co-nav-main__menu-icon_hover() {
@@ -143,26 +154,29 @@
     // Show one action only
     height: @co-nav-main-item-width + 2 * @co-nav-main-item-spacing;
     overflow: hidden;
+
+    // Fix width to ensure all actions are displayed on a single line.
     width: 300px;
+    // default behavior is to show one icon only
     max-width: @co-nav-main-item-width + 2 * @co-nav-main-item-spacing;
+
+    // All actions are in the "drawer" and appears on hover.
+    // The current action is positionned absolutely to appear in the menubar.
+    padding-left: @co-nav-main-item-width + 2 * @co-nav-main-item-spacing;
+
     &__action {
         .co-nav-main__menu-item;
         display: inline-block;
     }
     &__action__icon {
         .co-nav-main__menu-icon;
+        .co-nav-main__menu-icon_small;
         background: #F76548;
-    }
-    &__action:last-child > &__action__icon {
-        margin: 5px 15px 5px 0;
-        height: 40px;
-        width: 40px;
-        line-height: 40px;
-        font-size: 25px;
     }
     &__action__title {
         .co-nav-main__menu-title;
         .co-nav-main__menu-title_position-right;
+        display: none;
     }
     &__action.active > &__action__icon {
         .co-nav-main__menu-icon_active;
@@ -171,6 +185,23 @@
     &__action.active > &__action__title {
         .co-nav-main__menu-title_active;
     }
+
+    // This is the action related to current selected application
+    &__action_active {
+        // Position in the navbar
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    &__action_active > &__action__icon {
+        .co-nav-main__menu-icon;
+    }
+    // only display the first item
+    // The default action (expand) should be displayed when no 
+    &__action_active ~ &__action_active {
+        display: none;
+    }
+
     &:hover {
         max-width: 300px;
     }
@@ -181,82 +212,3 @@
         //.co-nav-main__menu-title_hover;
     }
 }
-/*
-.co-nav-main-applications {
-
-    &__actions__action,
-    &-applications__application {
-        display: block;
-        position: relative;
-        margin : 10px;
-        text-align: center;
-    }
-    &__actions__action__icon,
-    &-applications__application__icon {
-        display: inline-block;
-        vertical-align: middle;
-
-
-        background: #33CCFF;
-
-        color: #fff;
-    }
-    &-applications__application__title {
-        display: block;
-        position: absolute;
-        box-sizing: border-box;
-        // Set only vertical padding,
-        // otherwiseit breaks slide in effect
-        padding: 5px 0;
-
-        left: 30px;
-
-        // vertically centered
-        top: 50%;
-        margin-top: -20px;
-        height: 40px;
-
-        background-color: rgba(60,60, 60, .7);
-
-        max-width: 0px;
-        transition: max-width .3s ease-in;
-        overflow: hidden;
-
-        a {color: #fff;}
-    }
-    &-applications__application__title__content {
-        display: block;
-        padding: 0 10px 0 30px;
-        line-height: 30px;
-        font-size: 20px;
-    }
-
-
-
-
-
-    &-applications__application.active > &-applications__application__icon {
-        box-shadow: 1px 1px 12px #999;
-        opacity: 1;
-        background: #F76548;
-    }
-
-    &-applications__application:hover > &-applications__application__icon {
-        box-shadow: 1px 1px 12px #bbb;
-        opacity: 1;
-        //text-shadow: 0 0 10px #fff,
-        //           0 0 20px #fff,
-        //           0 0 30px #fff,
-        //           0 0 40px #ff00de,
-        //           0 0 70px #ff00de,
-        //           0 0 80px #ff00de,
-        //           0 0 100px #ff00de,
-        //           0 0 150px #ff00de;
-    }
-    &-applications__application:hover > &-applications__application__title {
-        max-width: 150px;
-        transition: max-width .2s ease-in;
-        box-shadow: 1px 1px 12px #bbb;
-    }
-}
-//*/
