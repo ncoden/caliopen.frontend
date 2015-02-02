@@ -19,12 +19,15 @@ export default {
     },
 
     "messages": {
-        "index": {
-          "title": "Messages",
-        },
-        "show": {
-          "back": "Back"
-        }
+      "index": {
+        "title": "Messages",
+      },
+      "show": {
+        "back": "Back"
+      },
+      "compose": {
+        "title": "Compose Message"
+      }
     },
 
     "contacts": {
@@ -33,6 +36,9 @@ export default {
       },
       "show": {
         "back": "Back"
+      },
+      "new": {
+        "title": "Create Contact"
       }
     },
 
