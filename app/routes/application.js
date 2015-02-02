@@ -21,13 +21,14 @@ export default Ember.Route.extend({
      * Taken from https://gist.github.com/nikpachoo/7369913#file-ember-redirect-js-L40
      */
     redirect: function(model, transition) {
+      // If this is the index route, redirect to first item
       if( transition.targetName === 'index'  ) {
         this.transitionTo('messages');
       }
     },
 
     setupController: function(controller, model) {
-        controller.set('model', model);
+        controller.set('attrs', model);
         //this.controllerFor('Header').set('model', model);
     }
 });
