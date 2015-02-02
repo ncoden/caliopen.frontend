@@ -5,7 +5,7 @@ import {
 
 moduleForComponent('co-nav-main/actions/action', 'CoNavMainActionsActionComponent', {
   // specify the other units that are required for this test
-  // needs: ['component:foo', 'helper:bar']
+  needs: ['component:co-icon']
 });
 
 test('it renders', function() {
