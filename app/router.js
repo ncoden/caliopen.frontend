@@ -7,11 +7,11 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.resource("messages", function() {
-    this.route("show", {path: "/:message_id/show"}, function () {});
+    this.route("show", {path: "/:message_id"}, function () {});
     this.route("compose");
   });
   this.resource("contacts", function() {
-    this.route("show", {path: "/:contact_id/show"});
+    this.route("show", {path: "/:contact_id"});
     this.route("new");
   });
   this.route("settings", function() {
