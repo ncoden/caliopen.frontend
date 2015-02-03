@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # This is the project root.
-declare DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-# Add npm bin to PATH
+declare DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
 PATH="$DIR/node_modules/.bin:$PATH"
+cd $DIR
 
 # Log a message.
 function log {
@@ -32,11 +32,6 @@ function check_deps {
 #
 
 function install_npm {
-    if [ -z "$(which ember)" ] ;
-    then
-        log "Install ember cli"
-        npm install ember-cli
-    fi
     log "Install npm dependencies"
     npm install
 }
@@ -45,10 +40,10 @@ function install_bower {
     if [ -z "$(which bower)" ] ;
     then
         log "Install bower"
-        npm install bower
+        npm install bower@latest
     fi
     log "Install bower dependencies"
-    bower install
+    node $(which bower) --allow-root install
 }
 
 function initial_build {
