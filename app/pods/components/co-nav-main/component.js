@@ -28,13 +28,13 @@
  * Applications
  * ------------
  *
- * App
+ * Applications are a main entry for Caliopen.
  *
  * Actions
  * -------
  *
  * Actions are located in their own navigation block.
- *
+ * Action related to current selected application is displayed as default.
  *
  */
 import Ember from 'ember';
