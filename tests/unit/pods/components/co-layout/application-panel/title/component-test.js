@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForComponent('main-title', 'MainTitleComponent', {
+moduleForComponent('co-layout/application-panel/title', 'MainTitleComponent', {
   // specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar']
 });
