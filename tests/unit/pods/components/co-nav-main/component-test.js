@@ -5,7 +5,16 @@ import {
 
 moduleForComponent('co-nav-main', 'CoNavMainComponent', {
   // specify the other units that are required for this test
-  helper: ['helper:t']
+  needs: [
+
+    'component:co-nav-main/actions',
+    'component:co-nav-main/actions/action',
+
+    'component:co-nav-main/applications',
+    'component:co-nav-main/applications/application',
+
+    'helper:t'
+  ]
 });
 
 test('it renders', function() {
