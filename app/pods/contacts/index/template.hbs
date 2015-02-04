@@ -1,23 +1,23 @@
 <div class="container-fluid">
     {{#co-layout/application-panel/title}}{{t contacts.index.title}}{{/co-layout/application-panel/title}}
-    {{#co-contact-list contacts=contacts}}
+    {{#co-contact/list contacts=contacts}}
 
         {{#each model as |contact|}}
 
-        {{#co-contact-list-item contact=contact}}
+        {{#co-contact/list/item contact=contact}}
 
-          {{co-contact-card-avatar contact=contact}}
+          {{co-contact/card/avatar contact=contact}}
 
-          {{#co-contact-card-title}}
+          {{#co-contact/card/title}}
           {{#link-to 'contacts.show' contact}}{{contact.fullname}}{{/link-to}}
-          {{/co-contact-card-title}}
+          {{/co-contact/card/title}}
 
-          {{co-contact-card-icons contact=contact}}
+          {{co-contact/card/icons contact=contact}}
 
-        {{/co-contact-list-item}}
+        {{/co-contact/list/item}}
 
         {{/each}}
 
-    {{/co-contact-list}}
+    {{/co-contact/list}}
     {{outlet}}
 </div>

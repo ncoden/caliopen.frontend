@@ -3,9 +3,9 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForComponent('co-contact-card-icons-icon', 'CoContactCardIconsIconComponent', {
+moduleForComponent('co-contact/list', 'CoContactListComponent', {
   // specify the other units that are required for this test
-  needs: ['component:co-icon']
+  // needs: ['component:foo', 'helper:bar']
 });
 
 test('it renders', function() {

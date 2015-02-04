@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForComponent('co-contact-list-item', 'CoContactListItemComponent', {
+moduleForComponent('co-contact/card/title', 'CoContactCardTitleComponent', {
   // specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar']
 });

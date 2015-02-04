@@ -5,7 +5,7 @@ import {
 
 import Ember from "ember";
 
-moduleForComponent('co-contact-card-avatar', 'CoContactCardAvatarComponent', {
+moduleForComponent('co-contact/card/avatar', 'CoContactCardAvatarComponent', {
   // specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar']
 });
