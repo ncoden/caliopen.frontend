@@ -41,7 +41,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 
-  classNames: ['co-nav-main'],
+  classNames: ['co-layout-nav-main'],
 
   // Properties
   // -------------------

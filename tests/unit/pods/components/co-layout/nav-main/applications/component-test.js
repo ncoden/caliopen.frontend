@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForComponent('co-nav-main/applications', 'CoNavMainApplicationsComponent', {
+moduleForComponent('co-layout/nav-main/applications', 'CoNavMainApplicationsComponent', {
   // specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar']
 });

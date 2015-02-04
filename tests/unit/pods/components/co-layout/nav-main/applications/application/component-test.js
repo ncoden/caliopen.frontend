@@ -3,13 +3,9 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForComponent('co-menu-top', 'CoMenuTopComponent', {
+moduleForComponent('co-layout/nav-main/applications/application', 'CoNavMainApplicationsApplicationComponent', {
   // specify the other units that are required for this test
-  needs: [
-    'component:co-icon',
-    'component:co-navigation-list-item',
-    'helper:t'
-  ]
+  needs: ['component:co-icon']
 });
 
 test('it renders', function() {

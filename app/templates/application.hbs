@@ -1,10 +1,10 @@
 <div class="caliopen-layout">
   <header class="caliopen-layout__header">
-    {{ co-menu-top currentUser=model.currentUser }}
+    {{ co-layout/menu-top currentUser=model.currentUser }}
   </header>
 
   <section class="caliopen-layout__menu">
-    {{co-nav-main currentRoute=currentPath}}
+    {{co-layout/nav-main currentRoute=currentPath}}
   </section>
 
   <section role="main" class="caliopen-layout__main">

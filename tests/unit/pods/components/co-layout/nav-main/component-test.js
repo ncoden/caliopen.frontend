@@ -3,9 +3,18 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForComponent('co-nav-main/actions', 'CoNavMainActionsComponent', {
+moduleForComponent('co-layout/nav-main', 'CoNavMainComponent', {
   // specify the other units that are required for this test
-  // needs: ['component:foo', 'helper:bar']
+  needs: [
+
+    'component:co-layout/nav-main/actions',
+    'component:co-layout/nav-main/actions/action',
+
+    'component:co-layout/nav-main/applications',
+    'component:co-layout/nav-main/applications/application',
+
+    'helper:t'
+  ]
 });
 
 test('it renders', function() {

@@ -4,6 +4,6 @@ export default Ember.Component.extend({
 
   tagName: 'ul',
 
-  classNames: ['co-nav-main-applications']
+  classNames: ['co-layout-nav-main-applications']
 
 });

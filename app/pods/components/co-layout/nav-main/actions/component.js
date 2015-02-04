@@ -4,17 +4,19 @@ export default Ember.Component.extend({
 
   tagName: 'ul',
 
-  classNames: ['co-nav-main-actions'],
+  classNames: ['co-layout-nav-main-actions'],
 
   currentApplication: null,
+
+  activeClassName: 'co-layout-nav-main-actions__action_active',
 
   updateMainAction: function () {
     this
         .$('[data-application]:not([data-application="default"])')
-        .removeClass('co-nav-main-actions__action_active');
+        .removeClass(this.activeClassName);
     this
         .$(`[data-application="${this.get('currentApplication')}"]`)
-        .addClass('co-nav-main-actions__action_active');
+        .addClass(this.activeClassName);
   },
 
 
@@ -23,7 +25,7 @@ export default Ember.Component.extend({
     // ensure default is active
     this
         .$('[data-application="default"]')
-        .addClass('co-nav-main-actions__action_active');
+        .addClass(this.activeClassName);
   },
 
   applicationDidChange: function () {
