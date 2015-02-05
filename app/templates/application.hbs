@@ -1,13 +1,17 @@
 <div class="caliopen-layout">
-    <header class="caliopen-layout__header">
-        {{ co-menu-top currentUser=model.currentUser }}
-    </header>
+  <header class="caliopen-layout__header">
+    {{ co-layout/menu-top currentUser=model.currentUser }}
+  </header>
 
-    <section role="main" class="caliopen-layout__main">
-        {{outlet}}
-    </section>
+  <section class="caliopen-layout__menu">
+    {{co-layout/nav-main currentRoute=currentPath}}
+  </section>
 
-    <footer class="caliopen-layout__footer">
-        <p class="caliopen-layout__footer-headline">{{t application.footer.moto }}</p>
-    </footer>
+  <section role="main" class="caliopen-layout__main">
+    {{outlet}}
+  </section>
+
+  <footer class="caliopen-layout__footer">
+    <p class="caliopen-layout__footer-headline">{{t application.footer.moto }}</p>
+  </footer>
 </div>

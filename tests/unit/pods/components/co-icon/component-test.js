@@ -1,3 +1,4 @@
+import Ember from "ember";
 import {
   moduleForComponent,
   test
@@ -18,4 +19,23 @@ test('it renders', function() {
   // appends the component to the page
   this.append();
   equal(component._state, 'inDOM');
+});
+
+test('it should accept more classes', function () {
+  expect(2);
+
+  // creates the component instance
+  var component = this.subject();
+
+  Ember.run(function () {
+    component.set('classNames', ['foo']);
+  });
+
+  equal(this.$().attr('class'), 'foo');
+
+  Ember.run(function () {
+    component.set('icon', 'envelope');
+  });
+
+  equal(this.$().attr('class'), 'foo glyphicon glyphicon-envelope');
 });
