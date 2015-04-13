@@ -2,9 +2,8 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'caliopen.frontend',
-    podModulePrefix: 'caliopen.frontend/pods',
-    usePodsByDefault: true,
+    modulePrefix: 'caliopen-frontend',
+    podModulePrefix: 'caliopen-frontend/pods',
     environment: environment,
     baseURL: '/app/',
     locationType: 'auto',

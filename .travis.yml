@@ -1,10 +1,9 @@
 ---
 language: node_js
+node_js:
+  - "0.12"
 
 sudo: false
-
-env:
-  - NODE_ENVIRONMENT=test
 
 cache:
   directories:
@@ -15,7 +14,9 @@ before_install:
   - "npm install -g npm@^2"
 
 install:
-  - ./bin/install
+  - npm install -g bower
+  - npm install
+  - bower install
 
 script:
   - npm test
