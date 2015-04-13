@@ -49,7 +49,7 @@ function install_bower {
 function initial_build {
     log "Initial release .for frontend code."
     [[ -z "${NODE_ENVIRONMENT}" ]] && NODE_ENVIRONMENT="production"
-    npm run build --environment "${NODE_ENVIRONMENT}"
+    npm run build -- --environment "${NODE_ENVIRONMENT}"
 }
 
 function install {
