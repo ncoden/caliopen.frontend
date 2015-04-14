@@ -1,5 +1,5 @@
 <p>{{ model.currentUser.name }}</p>
 <p>
-    {{t 'settings.account.privacy.default' model.currentUser.name }}
+    {{format-message (intl-get 'settings.account.privacy.default') username=model.currentUser.name}}
 </p>
 {{outlet}}

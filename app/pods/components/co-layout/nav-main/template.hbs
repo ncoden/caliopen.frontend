@@ -1,21 +1,21 @@
 {{#co-layout/nav-main/applications}}
     {{#co-layout/nav-main/applications/application icon="envelope"}}
-    {{#link-to "messages"}}{{t 'header.menu.messages'}}{{/link-to}}
+    {{#link-to "messages"}}{{format-message (intl-get 'header.menu.messages')}}{{/link-to}}
     {{/co-layout/nav-main/applications/application}}
     {{#co-layout/nav-main/applications/application icon="user"}}
-    {{#link-to "contacts"}}{{t 'header.menu.contacts'}}{{/link-to}}
+    {{#link-to "contacts"}}{{format-message (intl-get 'header.menu.contacts')}}{{/link-to}}
     {{/co-layout/nav-main/applications/application}}
 {{/co-layout/nav-main/applications}}
 
 {{#co-layout/nav-main/actions currentApplication=currentApplication}}
     {{#co-layout/nav-main/actions/action icon="pencil" application="messages"}}
-    {{#link-to "messages.compose"}}{{t 'header.menu.compose'}}{{/link-to}}
+    {{#link-to "messages.compose"}}{{format-message (intl-get 'header.menu.compose')}}{{/link-to}}
     {{/co-layout/nav-main/actions/action}}
     {{#co-layout/nav-main/actions/action icon="user" application="contacts"}}
-    {{#link-to "contacts.new"}}{{t 'header.menu.create_user'}}{{/link-to}}
+    {{#link-to "contacts.new"}}{{format-message (intl-get 'header.menu.create_user')}}{{/link-to}}
     {{/co-layout/nav-main/actions/action}}
     {{#co-layout/nav-main/actions/action icon="plus" application="default"}}
-    {{#link-to "index"}}{{t 'header.menu.action_default'}}{{/link-to}}
+    {{#link-to "index"}}{{format-message (intl-get 'header.menu.action_default')}}{{/link-to}}
     {{/co-layout/nav-main/actions/action}}
 {{/co-layout/nav-main/actions}}
 
