@@ -33,6 +33,10 @@ export default Locale.extend({
   },
 
   "contacts": {
+    "tags": {
+        "all": "All contacts",
+        "none": "No custom tags"
+    },
     "index": {
       "title": "Contacts"
     },

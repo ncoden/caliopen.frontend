@@ -28,7 +28,6 @@ export default Ember.Route.extend({
     },
 
     setupController: function(controller, model) {
-        controller.set('attrs', model);
-        //this.controllerFor('Header').set('model', model);
+        controller.set('attrs.currentUser', model.currentUser);
     }
 });

@@ -1,5 +1,3 @@
-import Ember from 'ember';
+import Controller from './baseContoller';
 
-export default Ember.Controller.extend({
-  attrs: {},
-});
+export default Controller.extend();
