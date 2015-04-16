@@ -1,19 +1,19 @@
-{{#co-layout/application-panel/title}}{{t 'settings.account.title' }}{{/co-layout/application-panel/title}}
+{{#co-layout/application-panel/title}}{{format-message (intl-get 'settings.account.title' )}}{{/co-layout/application-panel/title}}
 <div class="settings-account">
   <ul class="nav nav-tabs settings-account__navigation">
     {{#co-navigation-list-item}}
       {{#link-to "settings.account.profile" }}
-      {{t 'settings.account.menu.profile' }}
+      {{format-message (intl-get 'settings.account.menu.profile' )}}
       {{/link-to}}
     {{/co-navigation-list-item}}
     {{#co-navigation-list-item}}
       {{#link-to "settings.account.privacy" }}
-      {{t 'settings.account.menu.privacy' }}
+      {{format-message (intl-get 'settings.account.menu.privacy' )}}
       {{/link-to}}
     {{/co-navigation-list-item}}
     {{#co-navigation-list-item}}
       {{#link-to "settings.account.security" }}
-      {{t 'settings.account.menu.security' }}
+      {{format-message (intl-get 'settings.account.menu.security' )}}
       {{/link-to}}
     {{/co-navigation-list-item}}
   </ul>

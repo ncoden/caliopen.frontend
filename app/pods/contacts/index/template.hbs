@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    {{#co-layout/application-panel/title}}{{t 'contacts.index.title'}}{{/co-layout/application-panel/title}}
+    {{#co-layout/application-panel/title}}{{format-message (intl-get 'contacts.index.title')}}{{/co-layout/application-panel/title}}
     {{#co-contact/list contacts=contacts}}
 
         {{#each model as |contact|}}

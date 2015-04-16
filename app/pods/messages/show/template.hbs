@@ -1,4 +1,4 @@
 <h2>{{model.title}}</h2>
 {{outlet}}
 
-{{#link-to 'messages' }}{{t 'messages.show.back' }}{{/link-to}}
+{{#link-to 'messages' }}{{format-message (intl-get 'messages.show.back' )}}{{/link-to}}
