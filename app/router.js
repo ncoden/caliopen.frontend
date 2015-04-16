@@ -11,6 +11,7 @@ Router.map(function() {
     this.route("compose");
   });
   this.resource("contacts", function() {
+    this.route("tags", {path: "/tags/:tag_id"});
     this.route("show", {path: "/:contact_id"});
     this.route("new");
   });
