@@ -37,17 +37,20 @@ function install_npm {
 }
 
 function install_bower {
-    if [ -z "$(which bower)" ] ;
+    command -v bower >/dev/null 2>&1 && BOWER_CMD="bower"
+    [[ -n "${BOWER_CMD}" ]] || command -v ./node_modules/.bin/bower >/dev/null 2>&1 && BOWER_CMD="./node_modules/.bin/bower"
+    if [[ -z ${BOWER_CMD} ]]
     then
         log "Install bower"
         npm install bower@latest
+        BOWER_CMD="node ./node_modules/.bin/bower"
     fi
     log "Install bower dependencies"
-    node $(which bower) --allow-root install
+    $BOWER_CMD --allow-root install
 }
 
 function initial_build {
-    log "Initial release .for frontend code."
+    log "Initial release for frontend code."
     [[ -z "${NODE_ENVIRONMENT}" ]] && NODE_ENVIRONMENT="production"
     npm run build -- --environment "${NODE_ENVIRONMENT}"
 }
