@@ -23,12 +23,13 @@ authentication API.
 
 This service is exposed as `authentication` property on every route and model.
 
-### Privacy
+### Navigation
 
-Privacy is a dedicated service in charge of storing the current privacy index
-and filter.
+Navigation service is in charge of storing the navigation state. This includes
+the current loaded application and any other navigation related information. For
+instance the currently available tabs.
 
-This service is exposed as `privacy` property on every route and model.
+This service is injected into the Root Application Route.
 
 ### Importance
 
@@ -36,6 +37,13 @@ Importance is a dedicated service in charge of storing the current importance
 filter.
 
 This service is exposed as `importance` property on every route and model.
+
+### Privacy
+
+Privacy is a dedicated service in charge of storing the current privacy index
+and filter.
+
+This service is exposed as `privacy` property on every route and model.
 
 ### Search
 
