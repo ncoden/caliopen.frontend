@@ -79,14 +79,11 @@ The root application is in charge of managing
 
 More about Root Application in [dedicated documentation](./applications/01-root.markdown).
 
-### Account Creation
+### Authentication
 
-This application is in charge of user account creation as well of user data
-import.
+This application is in charge of user account creation and authentication.
 
-### Connection
-
-This application is in charge of user authentication.
+More about Account Application in [dedicated documentation](./applications/02-authentication.markdown).
 
 ### User Settings
 
@@ -100,6 +97,8 @@ This application is in charge of contact management.
 ### Messages
 
 This application is in charge of contact management.
+
+More about Account Application in [dedicated documentation](./applications/03-messages.markdown).
 
 ## UI components
 
