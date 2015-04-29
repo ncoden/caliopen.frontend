@@ -10,6 +10,10 @@ CaliOpen Frontend is written with [Ember](http://emberjs.com/).
 If you are not familiar with Ember, [Ember guides](http://guides.emberjs.com/)
 is a good place to start.
 
+A nice experiment, dealing with [Flux infrastructure in
+Ember](http://www.thesoftwaresimpleton.com/blog/2015/03/13/ember-reflux/) is a
+great source of inspiration.
+
 ## Services
 
 Service are injected into the application components thanks to [intializers
