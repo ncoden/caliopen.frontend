@@ -14,6 +14,9 @@ A nice experiment, dealing with [Flux infrastructure in
 Ember](http://www.thesoftwaresimpleton.com/blog/2015/03/13/ember-reflux/) is a
 great source of inspiration.
 
+To start developing for CaliOpen, have a look at the [Development
+Guidelines](./02-development-guidelines.markdown)
+
 ## Services
 
 Service are injected into the application components thanks to [intializers
@@ -90,6 +93,8 @@ More about Account Application in [dedicated documentation](./applications/02-au
 This application is in charge of user configuration, account and settings
 management.
 
+More about User Settings Application in [dedicated documentation](./applications/03-user-settings.markdown).
+
 ### Contacts
 
 This application is in charge of contact management.
@@ -98,7 +103,7 @@ This application is in charge of contact management.
 
 This application is in charge of contact management.
 
-More about Account Application in [dedicated documentation](./applications/03-messages.markdown).
+More about Account Application in [dedicated documentation](./applications/04-messages.markdown).
 
 ## UI components
 

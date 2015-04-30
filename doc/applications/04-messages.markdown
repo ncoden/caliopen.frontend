@@ -41,5 +41,5 @@ Functionalities to anticipate:
 
 ## Loading State
 
-This application and subroutes has a loading state.
+This application and sub-routes has a loading state.
 
