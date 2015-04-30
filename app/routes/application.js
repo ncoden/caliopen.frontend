@@ -22,7 +22,7 @@ export default Ember.Route.extend({
      */
     redirect: function(model, transition) {
       // If this is the index route, redirect to first item
-      if( transition.targetName === 'index'  ) {
+      if( transition.targetName === 'index' ) {
         this.transitionTo('messages');
       }
     },
