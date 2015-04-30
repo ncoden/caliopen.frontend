@@ -11,9 +11,8 @@ moduleForComponent('co-layout/nav-main', 'CoNavMainComponent', {
     'component:co-layout/nav-main/actions/action',
 
     'component:co-layout/nav-main/applications',
-    'component:co-layout/nav-main/applications/application',
+    'component:co-layout/nav-main/applications/application'
 
-    'helper:t'
   ]
 });
 

@@ -8,7 +8,6 @@ moduleForComponent('co-layout/menu-top', 'CoMenuTopComponent', {
   needs: [
     'component:co-icon',
     'component:co-navigation-list-item',
-    'helper:t'
   ]
 });
 
