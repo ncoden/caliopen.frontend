@@ -19,7 +19,9 @@ moduleFor('route:settings', 'SettingsRoute', {
 
 test('it exists', function() {
   var route = this.subject();
-  ok(route);
+  Ember.run(function () {
+    ok(route);
+  });
 });
 
 test('it should redirect from index to account', function () {
