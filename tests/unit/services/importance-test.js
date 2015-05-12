@@ -8,8 +8,16 @@ moduleFor('service:importance', {
   // needs: ['service:foo']
 });
 
-// Replace this with your real tests.
-test('it exists', function(assert) {
+test('Range compilation with initial configuration', function(assert) {
   var service = this.subject();
-  assert.ok(service);
+  assert.equal(service.get('formatRange'), '0:100');
+});
+
+test('Range compilation', function(assert) {
+  var service = this.subject();
+  // create cache
+  service.get('formatRange');
+  service.set('min', 10);
+  service.set('max', 50);
+  assert.equal(service.get('formatRange'), '10:50');
 });
