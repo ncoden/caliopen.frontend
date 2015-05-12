@@ -1,18 +1,31 @@
 import Ember from 'ember';
+import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(ApplicationRouteMixin, {
     model: function () {
-        return {
+        return Ember.RSVP.hash({
             currentUser: { name: 'John Doe' }
-        };
+        });
     },
 
     actions: {
+
+        /**
+         * Transition to an error page.
+         */
         error: function (err) {
-            // FIXME find a way to
+            // FIXME find a way to do it cleaner
             console.log('err:', err);
             this.transitionTo('catchall', 'unhandled-error');
+        },
+
+        /**
+         * Invalidate session.
+         */
+        invalidateSession: function () {
+          this.get('session').invalidate();
         }
+
     },
     /**
      * Default behaviour when landing to settings is to redirect to account
