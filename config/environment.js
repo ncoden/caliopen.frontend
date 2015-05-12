@@ -25,6 +25,7 @@ module.exports = function(environment) {
   };
 
   ENV['simple-auth'] = {
+    authenticationRoute: 'login'
   };
 
   if (environment === 'development') {

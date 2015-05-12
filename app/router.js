@@ -6,6 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route("login", {path: '/login'});
   this.route("messages", function() {
     this.route("show", {path: "/:message_id"}, function () {});
     this.route("compose");
@@ -28,6 +29,7 @@ Router.map(function() {
     this.route("app");
   });
   this.route("catchall", {path: '/*wildcard'});
+  this.route('login');
 });
 
 export default Router;
