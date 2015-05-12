@@ -1,0 +1,18 @@
+<form action="/login" method="POST" accept-charset="utf-8"
+      class="login-form" {{action 'authenticate' on='submit' }}>
+
+  <p>
+    <label for="username">Username</label>
+    {{input type="text" name="username" value=username }}
+  </p>
+
+  <p>
+    <label for="password">Password</label>
+    {{input type="password" name="password" value=password }}
+  </p>
+
+  {{yield}}
+
+  <p><input type="submit" value="Continue"></p>
+
+</form>
