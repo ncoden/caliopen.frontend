@@ -1,11 +1,12 @@
 import Ember from 'ember';
+import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(AuthenticatedRouteMixin, {
     /**
      * Returns the different attributes
      */
     model: function () {
-        var tags = [{id: "tag1", title: "tag1"}];
+        var tags = [{id: 'tag1', title: 'tag1'}];
         return { tags };
     },
 
