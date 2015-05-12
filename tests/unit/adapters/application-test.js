@@ -28,7 +28,7 @@ module('ApplicationAdapter', {
 });
 
 // Replace this with your real tests.
-test('Dummy adapter should ave ', function(assert) {
+test('Dummy adapter should have X-CALIOPEN-IMPORTANCE header', function(assert) {
   assert.expect(1);
   var adapter = container.lookup('adapter:dummy');
   Ember.run(function() {
