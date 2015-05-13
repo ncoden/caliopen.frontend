@@ -19,16 +19,19 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
       this.transitionTo('catchall', 'unhandled-error');
     },
 
-    /**
-     * Invalidate session.
-     */
-    invalidateSession: function () {
-      this.get('session').invalidate();
-    },
-
     // =======================================
     // Implement ApplicationRouteMixin Methods
     // =======================================
+
+    invalidateSession: function() {
+      this.get('session').invalidate();
+    },
+
+    sessionInvalidationSucceeded: function() {
+      if (!Ember.testing) {
+        this.transitionTo('login');
+      }
+    }
 
   },
   /**

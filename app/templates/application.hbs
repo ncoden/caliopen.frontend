@@ -1,11 +1,15 @@
 <div class="caliopen-layout">
   <header class="caliopen-layout__header">
-    {{ co-layout/menu-top currentUser=attrs.currentUser }}
+    {{ co-layout/menu-top currentUser=attrs.currentUser
+                          signin='sessionRequiresAuthentication'
+                          logout='invalidateSession' }}
   </header>
 
+{{#if session.isAuthenticated }}
   <section class="caliopen-layout__menu">
     {{co-layout/nav-main currentRoute=currentPath}}
   </section>
+{{/if}}
 
   <section role="main" class="caliopen-layout__main">
     {{outlet}}

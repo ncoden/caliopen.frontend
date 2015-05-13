@@ -29,7 +29,6 @@ Router.map(function() {
     this.route("app");
   });
   this.route("catchall", {path: '/*wildcard'});
-  this.route('login');
 });
 
 export default Router;
