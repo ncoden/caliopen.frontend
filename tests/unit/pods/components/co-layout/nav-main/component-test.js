@@ -1,4 +1,4 @@
-import { registerIntl } from '../../../../../../initializers/ember-intl';
+import { registerIntl } from 'caliopen-frontend/initializers/ember-intl';
 import {
   moduleForComponent,
   test
