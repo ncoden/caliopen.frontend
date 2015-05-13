@@ -4,7 +4,7 @@ import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
 export default Ember.Route.extend(ApplicationRouteMixin, {
   model: function () {
     return Ember.RSVP.hash({
-      currentUser: { name: 'John Doe' }
+      user: this.get('session.secure')
     });
   },
 
@@ -48,6 +48,6 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
   },
 
   setupController: function(controller, model) {
-    controller.set('attrs.currentUser', model.currentUser);
+    controller.setProperties(model);
   }
 });

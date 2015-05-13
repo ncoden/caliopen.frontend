@@ -3,9 +3,9 @@ import Base from 'simple-auth/authenticators/base';
 
 export default Base.extend({
   restore: function(data) {
-    return new Ember.RSVP.Promise(function (resolve, reject) {
+    return new Ember.RSVP.Promise(function (resolve/*, reject*/) {
       console.log('restore', data);
-      return reject(data);
+      return resolve(data);
     });
   },
   authenticate: function(options) {
