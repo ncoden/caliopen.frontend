@@ -10,6 +10,7 @@ export default Locale.extend({
       "create_user": "Create User",
       "account": "Account",
       "settings": "Settings",
+      "signin": "Log In",
       "signout": "Log Out"
     }
   },
@@ -71,6 +72,15 @@ export default Locale.extend({
       "menu": {
         "none": "No settings panel for now"
       }
+    }
+  },
+
+  "login": {
+    "form": {
+      "title": "Sign In",
+      "username": "Username",
+      "password": "Password",
+      "submit": "Go"
     }
   }
 });
