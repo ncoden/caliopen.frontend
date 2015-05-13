@@ -1,86 +1,86 @@
 import Locale from 'ember-intl/models/locale';
 export default Locale.extend({
   locale: 'en',
-  "header": {
-    "menu": {
-      "messages": "Messages",
-      "contacts": "Contacts",
-      "compose": "Compose",
-      "action_default": "Action",
-      "create_user": "Create User",
-      "account": "Account",
-      "settings": "Settings",
-      "signin": "Log In",
-      "signout": "Log Out"
+  'header': {
+    'menu': {
+      'messages': 'Messages',
+      'contacts': 'Contacts',
+      'compose': 'Compose',
+      'action_default': 'Action',
+      'create_user': 'Create User',
+      'account': 'Account',
+      'settings': 'Settings',
+      'signin': 'Log In',
+      'signout': 'Log Out'
     }
   },
 
-  "application": {
-    "footer": {
-      "moto": "CaliOpen, Be Good"
+  'application': {
+    'footer': {
+      'moto': 'CaliOpen, Be Good'
     }
   },
 
-  "messages": {
-    "index": {
-      "title": "Messages",
+  'messages': {
+    'index': {
+      'title': 'Messages'
     },
-    "show": {
-      "back": "Back"
+    'show': {
+      'back': 'Back'
     },
-    "compose": {
-      "title": "Compose Message"
+    'compose': {
+      'title': 'Compose Message'
     }
   },
 
-  "contacts": {
-    "tags": {
-        "all": "All contacts",
-        "none": "No custom tags"
+  'contacts': {
+    'tags': {
+        'all': 'All contacts',
+        'none': 'No custom tags'
     },
-    "index": {
-      "title": "Contacts"
+    'index': {
+      'title': 'Contacts'
     },
-    "show": {
-      "back": "Back"
+    'show': {
+      'back': 'Back'
     },
-    "new": {
-      "title": "Create Contact"
+    'new': {
+      'title': 'Create Contact'
     }
   },
 
-  "settings": {
-    "account": {
-      "title": "About Me",
-      "menu": {
-        "profile": "Profile",
-        "privacy": "Privacy",
-        "security": "Security"
+  'settings': {
+    'account': {
+      'title': 'About Me',
+      'menu': {
+        'profile': 'Profile',
+        'privacy': 'Privacy',
+        'security': 'Security'
       },
-      "profile": {
-        "default": "This is the user profile for {username}"
+      'profile': {
+        'default': 'This is the user profile for {username}'
       },
-      "privacy": {
-        "default": "This is the privacy settings for {username}"
+      'privacy': {
+        'default': 'This is the privacy settings for {username}'
       },
-      "security": {
-        "default": "This is the security settings for {username}"
+      'security': {
+        'default': 'This is the security settings for {username}'
       }
     },
-    "app": {
-      "title": "Application Settings",
-      "menu": {
-        "none": "No settings panel for now"
+    'app': {
+      'title': 'Application Settings',
+      'menu': {
+        'none': 'No settings panel for now'
       }
     }
   },
 
-  "login": {
-    "form": {
-      "title": "Sign In",
-      "username": "Username",
-      "password": "Password",
-      "submit": "Go"
+  'login': {
+    'form': {
+      'title': 'Sign In',
+      'username': 'Username',
+      'password': 'Password',
+      'submit': 'Go'
     }
   }
 });
