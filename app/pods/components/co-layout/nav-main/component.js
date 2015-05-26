@@ -52,11 +52,13 @@ export default Ember.Component.extend({
   // -------------------
 
   // the current application is the main level route.
-  currentApplication: function () {
-    var currentRoute = this.get('currentRoute') || '';
-    var application = currentRoute.split('.').shift();
+  currentApplication: Ember.computed('currentRoute', {
+    get: function () {
+      var currentRoute = this.get('currentRoute') || '';
+      var application = currentRoute.split('.').shift();
 
-    return application;
-  }.property('currentRoute')
+      return application;
+    }
+  })
 
 });

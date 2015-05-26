@@ -8,11 +8,13 @@ export default Ember.Component.extend({
   classNames: [],
   classNameBindings: ['iconClass'],
 
-  iconClass: function () {
-    if (!this.get('icon')) {
-      return '';
-    }
+  iconClass: Ember.computed('icon', {
+    get: function () {
+      if (!this.get('icon')) {
+        return '';
+      }
 
-    return `glyphicon glyphicon-${this.get('icon')}`;
-  }.property('icon')
+      return `glyphicon glyphicon-${this.get('icon')}`;
+    }
+  })
 });

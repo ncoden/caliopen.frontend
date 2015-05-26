@@ -26,14 +26,16 @@ export default Ember.Component.extend({
    *
    * @return Array
    */
-  media: function () {
-    var contact = this.get('contact');
-    if (!contact) {
-      return [];
-    }
+  media: Ember.computed('contact', {
+    get: function () {
+      var contact = this.get('contact');
+      if (!contact) {
+        return [];
+      }
 
-    return ['twitter', 'mail'];
-  }.property('contact'),
+      return ['twitter', 'mail'];
+    }
+  }),
 
   actions: {
     /**

@@ -47,9 +47,11 @@ export default Ember.Component.extend({
     classNameBindings: ['active'],
 
     // properties
-    active: function(){
-        return this.get('childViews').isAny('active');
-    }.property('childViews.@each.active'),
+    active: Ember.computed('childViews.@each.active', {
+      get: function(){
+          return this.get('childViews').isAny('active');
+      }
+    }),
 
     // On click send the component action
     click: function () {
