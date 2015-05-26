@@ -4,6 +4,31 @@ export default Ember.Component.extend({
   tagName: 'div',
   classNames: ['caliopen-layout'],
 
+  // Properties
+  // -------------------
+
+  // Ember routing currentpath
+  currentPath: null,
+  // signin action, displays the authentication form
+  signin: null,
+  // logout action, used to delete current authenticatation
+  logout: null,
+
+
+  // Computed properties
+  // -------------------
+
+  // the current application is the main level route.
+  currentApplication: Ember.computed('currentRoute', {
+    get: function () {
+      var currentRoute = this.get('currentRoute') ||'';
+      var application = currentRoute.split('.').shift();
+
+      return application;
+    }
+  }),
+
+  // the current logged in user
   user: Ember.computed('session.secure', {
     get: function () {
       return this.get('session.secure');
