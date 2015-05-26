@@ -1,21 +1,5 @@
-<div class="caliopen-layout">
-  <header class="caliopen-layout__header">
-    {{ co-layout/menu-top user=user
-                          signin='sessionRequiresAuthentication'
-                          logout='invalidateSession' }}
-  </header>
-
-{{#if session.isAuthenticated }}
-  <section class="caliopen-layout__menu">
-    {{co-layout/nav-main currentRoute=currentPath}}
-  </section>
-{{/if}}
-
-  <section role="main" class="caliopen-layout__main">
-    {{outlet}}
-  </section>
-
-  <footer class="caliopen-layout__footer">
-    <p class="caliopen-layout__footer-headline">{{format-message (intl-get 'application.footer.moto' )}}</p>
-  </footer>
-</div>
+{{#co-layout
+          signin='sessionRequiresAuthentication'
+          logout='invalidateSession' }}
+  {{outlet}}
+{{/co-layout}}

@@ -24,11 +24,22 @@ Service are injected into the application components thanks to [intializers
 
 ### Authentication
 
-Authentication service is in charge of storing, accessing and mutating
-everything related to current user. This includes authentication token, profile,
-authentication API.
+Authentication is done thanks to [ember-simple-auth
+](http://ember-simple-auth.com/) addon.
 
-This service is exposed as `authentication` property on every route and model.
+A custom [authenticator
+](https://github.com/CaliOpen/caliopen.frontend/tree/master/app/authenticators/custom.js)
+is used.
+
+### Session
+
+Application state is a service used to save current application state that is
+not directly handled by routing.
+
+This service is exposed as `session` property on every route and model.
+
+This service is part of [ember-simple-auth](http://ember-simple-auth.com/)
+addon.
 
 ### Navigation
 
@@ -57,13 +68,6 @@ This service is exposed as `privacy` property on every route and model.
 Search is a dedicated service providing the search API.
 
 This service is exposed as `search` where it is needed.
-
-### Session
-
-Application state is a service used to save current application state that is
-not directly handled by routing.
-
-This service is exposed as `session` property on every route and model.
 
 ## Applications
 

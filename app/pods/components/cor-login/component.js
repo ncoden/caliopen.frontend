@@ -22,10 +22,12 @@ export default Ember.Component.extend({
      */
     authenticate: function () {
       var self = this;
+      var props = this.getProperties('username', 'password');
+
       return this.get('session')
-        .authenticate('authenticator:custom', this.getProperties('username', 'password'))
+        .authenticate('authenticator:custom', props)
         .then(null, function (err) {
-          Ember.set(self, 'error', err);
+          Ember.set(self, 'error', err.error);
         });
     }
 

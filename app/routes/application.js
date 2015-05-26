@@ -3,9 +3,7 @@ import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
   model: function () {
-    return Ember.RSVP.hash({
-      user: this.get('session.secure')
-    });
+    return Ember.RSVP.hash({});
   },
 
   actions: {
@@ -27,13 +25,22 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
       this.get('session').invalidate();
     },
 
+    sessionRequiresAuthentication: function () {
+      return this._super();
+    },
+
     sessionInvalidationSucceeded: function() {
       if (!Ember.testing) {
         this.transitionTo('login');
       }
+    },
+
+    sessionAuthenticationSucceeded: function() {
+      this.transitionTo('index');
     }
 
   },
+
   /**
     * Default behaviour when landing to settings is to redirect to account
     * settings.

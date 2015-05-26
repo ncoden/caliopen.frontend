@@ -1,0 +1,19 @@
+<header class="caliopen-layout__header">
+  {{ co-layout/menu-top user=user
+                        signin='signin'
+                        logout='logout' }}
+</header>
+
+{{#if session.isAuthenticated }}
+<section class="caliopen-layout__menu">
+  {{co-layout/nav-main currentRoute=currentPath}}
+</section>
+{{/if}}
+
+<section role="main" class="caliopen-layout__main">
+  {{yield}}
+</section>
+
+<footer class="caliopen-layout__footer">
+  <p class="caliopen-layout__footer-headline">{{format-message (intl-get 'application.footer.moto' )}}</p>
+</footer>
