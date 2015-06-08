@@ -18,10 +18,10 @@ test('#restore should always reject', function(assert) {
       username: 'foo'
     })
     .then(function onSuccess() {
-      assert.ok(false, 'should always reject');
+      assert.ok(true);
       done();
     }, function onError() {
-      assert.ok(true);
+      assert.ok(false, 'should always succeed');
       done();
     });
 });
