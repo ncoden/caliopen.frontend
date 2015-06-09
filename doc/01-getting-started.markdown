@@ -61,7 +61,7 @@ This service is exposed as `importance` property on every route and model.
 Privacy is a dedicated service in charge of storing the current privacy index
 and filter.
 
-This service is exposed as `privacy` property on every route and model.
+This service is exposed as `privacyIndex` property on every route and model.
 
 ### Search
 
