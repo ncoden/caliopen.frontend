@@ -38,7 +38,7 @@ function install_npm {
 
 function install_bower {
     command -v bower >/dev/null 2>&1 && BOWER_CMD="bower"
-    [[ -n "${BOWER_CMD}" ]] || command -v ./node_modules/.bin/bower >/dev/null 2>&1 && BOWER_CMD="./node_modules/.bin/bower"
+    [[ -n "${BOWER_CMD}" ]] || (command -v ./node_modules/.bin/bower >/dev/null 2>&1 && BOWER_CMD="./node_modules/.bin/bower")
     if [[ -z ${BOWER_CMD} ]]
     then
         log "Install bower"
