@@ -12,6 +12,7 @@ export default DS.RESTAdapter.extend({
     get: function () {
       return {
         'X-CALIOPEN-IMPORTANCE': this.get('importance.formatRange'),
+        'X-CALIOPEN-PRIVACY-INDEX': this.get('privacyIndex.formatRange'),
         'X-AUTHENTICATION-TOKEN': 'define me in app/adapters/application.js'
       };
     }
