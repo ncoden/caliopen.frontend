@@ -1,17 +1,6 @@
-<div class="caliopen-layout">
-  <header class="caliopen-layout__header">
-    {{ co-layout/menu-top currentUser=attrs.currentUser }}
-  </header>
-
-  <section class="caliopen-layout__menu">
-    {{co-layout/nav-main currentRoute=currentPath}}
-  </section>
-
-  <section role="main" class="caliopen-layout__main">
-    {{outlet}}
-  </section>
-
-  <footer class="caliopen-layout__footer">
-    <p class="caliopen-layout__footer-headline">{{format-message (intl-get 'application.footer.moto' )}}</p>
-  </footer>
-</div>
+{{#co-layout
+          currentPath=currentPath
+          signin='sessionRequiresAuthentication'
+          logout='invalidateSession' }}
+  {{outlet}}
+{{/co-layout}}

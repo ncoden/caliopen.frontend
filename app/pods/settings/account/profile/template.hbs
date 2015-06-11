@@ -1,5 +1,5 @@
-<p>{{ model.currentUser.name }}</p>
+<p>{{ user.username }}</p>
 <p>
-    {{format-message (intl-get 'settings.account.profile.default') username=model.currentUser.name }}
+    {{format-message (intl-get 'settings.account.profile.default') username=user.username }}
 </p>
 {{outlet}}

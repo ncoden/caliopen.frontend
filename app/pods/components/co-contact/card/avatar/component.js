@@ -8,14 +8,16 @@ export default Ember.Component.extend({
 
   attributeBindings: ['src'],
 
-  src: function () {
-    var contact = this.get('contact');
-    if (contact && contact.avatar_url) {
-      return this.contact.avatar_url;
-    }
+  src: Ember.computed('contact', {
+    get: function () {
+      var contact = this.get('contact');
+      if (contact && contact.avatar_url) {
+        return this.contact.avatar_url;
+      }
 
-    return this.get('defaultImage');
-  }.property('contact'),
+      return this.get('defaultImage');
+    }
+  }),
 
   classNames: ['co-contact-list__card-avatar']
 });

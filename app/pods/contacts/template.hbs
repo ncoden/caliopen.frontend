@@ -1,27 +1,27 @@
 <div class="container-fluid">
-    <div class="row">
-        <nav class="col-xs-12 col-md-3 col-lg-2">
-            <ul>
-                <li>
-                    {{#link-to 'contacts.index' }}
-                    {{format-message (intl-get 'contacts.tags.all')}}
-                    {{/link-to}}
-                </li>
-                {{#each tag in attrs.tags}}
-                <li>
-                    {{#link-to 'contacts.tags' tag }}
-                    {{tag.title}}
-                    {{/link-to}}
-                </li>
-                {{else}}
-                <li>
-                    {{format-message (intl-get 'contacts.tags.none')}}
-                </li>
-                {{/each}}
-            </ul>
-        </nav>
-        <div class="col-xs-12 col-md-9 col-lg-10">
-            {{outlet}}
-        </div>
-    </div>
+  <div class="row">
+      <nav class="col-xs-12 col-md-3 col-lg-2">
+          <ul>
+              <li>
+                  {{#link-to 'contacts.index' }}
+                  {{format-message (intl-get 'contacts.tags.all')}}
+                  {{/link-to}}
+              </li>
+              {{#each tag in attrs.tags}}
+              <li>
+                  {{#link-to 'contacts.tags' tag }}
+                  {{tag.title}}
+                  {{/link-to}}
+              </li>
+              {{else}}
+              <li>
+                  {{format-message (intl-get 'contacts.tags.none')}}
+              </li>
+              {{/each}}
+          </ul>
+      </nav>
+      <div class="col-xs-12 col-md-9 col-lg-10">
+          {{outlet}}
+      </div>
+  </div>
 </div>

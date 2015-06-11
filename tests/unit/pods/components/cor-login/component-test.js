@@ -1,18 +1,12 @@
-import { registerIntl } from '../../../../../../initializers/ember-intl';
+import { registerIntl } from 'caliopen-frontend/initializers/ember-intl';
 import {
   moduleForComponent,
   test
 } from 'ember-qunit';
 
-moduleForComponent('co-layout/nav-main', 'CoNavMainComponent', {
-  // specify the other units that are required for this test
+moduleForComponent('cor-login', {
+  // Specify the other units that are required for this test
   needs: [
-
-    'component:co-layout/nav-main/actions',
-    'component:co-layout/nav-main/actions/action',
-
-    'component:co-layout/nav-main/applications',
-    'component:co-layout/nav-main/applications/application',
 
     // intl
     'adapter:-intl-adapter',
@@ -22,6 +16,7 @@ moduleForComponent('co-layout/nav-main', 'CoNavMainComponent', {
     'locale:en'
 
   ],
+
   setup: function () {
     // depending on your test library, container will be hanging off `this`
     // or otherwise passed in as the first argument
@@ -36,14 +31,14 @@ moduleForComponent('co-layout/nav-main', 'CoNavMainComponent', {
 
 });
 
-test('it renders', function() {
-  expect(2);
+test('it renders', function(assert) {
+  assert.expect(2);
 
-  // creates the component instance
+  // Creates the component instance
   var component = this.subject();
-  equal(component._state, 'preRender');
+  assert.equal(component._state, 'preRender');
 
-  // appends the component to the page
-  this.append();
-  equal(component._state, 'inDOM');
+  // Renders the component to the page
+  this.render();
+  assert.equal(component._state, 'inDOM');
 });

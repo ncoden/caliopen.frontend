@@ -24,17 +24,19 @@ export default Ember.Component.extend({
    * Associated icon depending on medium
    * This returns the name of a `co-icon`.
    */
-  icon: function () {
-    switch(this.get('medium')) {
-      case 'mail':
-      case 'email':
-        return 'envelope';
-      case 'twitter':
-        return 'question-sign';
-      default:
-        return 'question-sign';
+  icon: Ember.computed('medium', {
+    get: function () {
+      switch(this.get('medium')) {
+        case 'mail':
+        case 'email':
+          return 'envelope';
+        case 'twitter':
+          return 'question-sign';
+        default:
+          return 'question-sign';
+      }
     }
-  }.property('medium'),
+  }),
 
   /**
    * @event

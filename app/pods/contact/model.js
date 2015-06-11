@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.Model.extend({
@@ -14,16 +15,22 @@ export default DS.Model.extend({
   organizations: DS.hasMany('contact/organization', {async: true}),
   keys: DS.hasMany('contact/key', {async: true}),
 
-  fullname: function () {
-    return `${this.get('firstname')} ${this.get('lastname')}`;
-  }.property('firstname', 'lastname'),
+  fullname: Ember.computed('firstname', 'lastname', {
+    get: function () {
+      return `${this.get('firstname')} ${this.get('lastname')}`;
+    }
+  }),
 
-  firstname: function () {
-    return this.get('given_name');
-  }.property('given_name'),
+  firstname: Ember.computed('given_name', {
+    get: function () {
+      return this.get('given_name');
+    }
+  }),
 
-  lastname: function () {
-    return this.get('family_name');
-  }.property('family_name')
+  lastname: Ember.computed('family_name', {
+    get: function () {
+      return this.get('family_name');
+    }
+  })
 
 });
