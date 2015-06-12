@@ -77,6 +77,7 @@ export default Locale.extend({
 
   'login': {
     'form': {
+      'errorlabel': 'Error',
       'title': 'Sign In',
       'username': 'Username',
       'password': 'Password',

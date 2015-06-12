@@ -6,10 +6,12 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   tagName: 'div',
   classNames: ['cor-login'],
+  classNameBindings: ['isLoading:is-loading'],
 
 
   // properties
-  loading: false,
+  isLoading: false,
+  error: null,
   username: '',
   password: '',
 
@@ -21,13 +23,16 @@ export default Ember.Component.extend({
      * Mostly send the action upward.
      */
     authenticate: function () {
-      var self = this;
+      this.set('isLoading', true);
+
       var props = this.getProperties('username', 'password');
+      let resetLoading = () => this.set('isLoading', false);
 
       return this.get('session')
         .authenticate('authenticator:custom', props)
-        .then(null, function (err) {
-          Ember.set(self, 'error', err.error);
+        .then(resetLoading, (err) => {
+          resetLoading();
+          this.set('error', err.error);
         });
     }
 

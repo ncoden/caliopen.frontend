@@ -1,0 +1,57 @@
+// Layout component
+// ================
+//
+// This is the style for the application layout.
+
+$footer-height:         50px;
+$footer-color:          $navbar-default-color;
+$footer-background:     $navbar-default-bg;
+$footer-border:         $navbar-default-border;
+$header-height:         60px;
+
+.caliopen-layout {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.caliopen-layout__header {
+}
+
+.caliopen-layout__main {
+    position: relative;
+
+    // This is required for the top bar not to cover the body
+    // See http://getbootstrap.com/components/#navbar-fixed-top
+    padding-top: $header-height;
+    // push body content to make sure content doesn't overflow footer.
+    padding-bottom: $footer-height;
+    min-height: 100%;
+}
+
+.caliopen-layout__footer {
+    // Position to the page bottom
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    // force height
+    box-sizing: content-box;
+    height: $footer-height;
+    padding: 0;
+    margin: 0;
+
+    // some painting
+    background: $footer-background;
+    border-top: 1px solid $navbar-default-border;
+    color: $footer-color;
+}
+.caliopen-layout__footer-headline {
+    padding: 0;
+    margin: 0;
+    line-height: $footer-height;
+    text-align: center;
+}
+
