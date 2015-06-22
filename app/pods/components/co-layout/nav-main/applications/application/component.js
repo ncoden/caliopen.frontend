@@ -1,4 +1,4 @@
-import NavItemComponent from '../../../../co-navigation-list-item/component';
+import NavItemComponent from '../../../../co-widget/link-li/component';
 
 export default NavItemComponent.extend({
 

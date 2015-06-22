@@ -27,17 +27,17 @@
             </a>
             <ul class="dropdown-menu" role="menu">
 
-              {{#co-navigation-list-item}}
+              {{#co-widget/link-li}}
                 {{#link-to "settings.account"}}
                   {{format-message (intl-get 'header.menu.account')}}
                 {{/link-to}}
-              {{/co-navigation-list-item}}
+              {{/co-widget/link-li}}
 
-              {{#co-navigation-list-item}}
+              {{#co-widget/link-li}}
                 {{#link-to "settings.app"}}
                   {{format-message (intl-get 'header.menu.settings')}}
                 {{/link-to}}
-              {{/co-navigation-list-item}}
+              {{/co-widget/link-li}}
 
               <li class="divider"></li>
               <li>
