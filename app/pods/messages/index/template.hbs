@@ -3,7 +3,7 @@
     {{#each model as |conversation|}}
     <li>
     {{#link-to 'messages.show' conversation}}
-    {{co-icon icon="paperclip"}} {{conversation.title}}
+    {{co-widget/icon icon="paperclip"}} {{conversation.title}}
     {{/link-to}}
     </li>
     {{/each}}

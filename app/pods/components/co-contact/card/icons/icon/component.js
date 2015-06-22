@@ -22,7 +22,7 @@ export default Ember.Component.extend({
    * @property icon
    *
    * Associated icon depending on medium
-   * This returns the name of a `co-icon`.
+   * This returns the name of a `co-widget/icon`.
    */
   icon: Ember.computed('medium', {
     get: function () {
