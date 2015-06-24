@@ -21,13 +21,19 @@ $header-height:         60px;
 
 .caliopen-layout__main {
     position: relative;
+    box-sizing: border-box;
 
     // This is required for the top bar not to cover the body
     // See http://getbootstrap.com/components/#navbar-fixed-top
     padding-top: $header-height;
     // push body content to make sure content doesn't overflow footer.
     padding-bottom: $footer-height;
-    min-height: 100%;
+
+    height: 100%;
+    width: 100%;
+
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .caliopen-layout__footer {
@@ -54,4 +60,25 @@ $header-height:         60px;
     line-height: $footer-height;
     text-align: center;
 }
+
+    .co-layout__main-action {
+    }
+
+    .co-layout__privacy-slider {
+        margin: 10px;
+    }
+
+    .co-layout__main-slider-menu {
+    }
+    .co-layout__importance-slider {
+        margin: 10px;
+
+        & > .noUi-vertical {
+            height: calc( 100vh - #{$header-height} - #{$footer-height} - 150px );
+            margin: auto;
+        }
+    }
+
+    .co-layout__main-inner-view {
+    }
 

@@ -5,9 +5,10 @@ export default Locale.extend({
     'menu': {
       'messages': 'Messages',
       'contacts': 'Contacts',
-      'compose': 'Compose',
+      'compose': 'Compose Message',
       'action_default': 'Action',
-      'create_user': 'Create User',
+      'action_dropdown': 'Other Actions',
+      'create_user': 'New Contact',
       'account': 'Account',
       'settings': 'Settings',
       'signin': 'Log In',

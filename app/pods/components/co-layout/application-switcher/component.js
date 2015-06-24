@@ -1,3 +1,9 @@
+/**
+ * This is the application switcher located in top bar.
+ *
+ * Displays the currently selected application and a list of available
+ * applications.
+ */
 import Ember from 'ember';
 
 export default Ember.Component.extend({
@@ -5,11 +11,5 @@ export default Ember.Component.extend({
   classNames: ['nav', 'navbar-nav'],
 
   // attributes
-  currentApplication: null,
-
-  actions: {
-    selectApplication: function () {
-      this.sendAction('selectApplication', ...arguments);
-    }
-  }
+  currentApplication: null
 });

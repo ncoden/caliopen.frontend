@@ -15,82 +15,55 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         {{#if session.isAuthenticated }}
           {{co-layout/application-switcher
-                selectApplication="selectApplication"
                 currentApplication=currentApplication }}
+
+          {{co-layout/user-menu
+                user=user
+                currentApplication=currentApplication }}
+
+        {{else}}
+
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/login" {{action 'signin'}}>
+                {{format-message (intl-get 'header.menu.signin')}}
+              </a>
+            </li>
+          </ul>
+
         {{/if}}
-        <ul class="nav navbar-nav navbar-right">
-
-          {{#if session.isAuthenticated }}
-
-          <li class="dropdown">
-            <a  href="#" class="dropdown-toggle" data-toggle="dropdown"
-                role="button" aria-expanded="false">
-              {{ user.username }} <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu" role="menu">
-
-              {{#co-widget/link-li}}
-                {{#link-to "settings.account"}}
-                  {{format-message (intl-get 'header.menu.account')}}
-                {{/link-to}}
-              {{/co-widget/link-li}}
-
-              {{#co-widget/link-li}}
-                {{#link-to "settings.app"}}
-                  {{format-message (intl-get 'header.menu.settings')}}
-                {{/link-to}}
-              {{/co-widget/link-li}}
-
-              <li class="divider"></li>
-              <li>
-                <a href="/signout" {{action 'logout'}}>
-                  {{format-message (intl-get 'header.menu.signout')}}
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          {{else}}
-
-          <li>
-            <a href="/login" {{action 'signin'}}>
-              {{format-message (intl-get 'header.menu.signin')}}
-            </a>
-          </li>
-
-          {{/if}}
-        </ul>
       </div>
     </div>
   </nav>
 </header>
 
-{{#if session.isAuthenticated }}
-
-  {{#co-layout/nav-main/applications}}
-    {{#co-layout/nav-main/applications/application icon="envelope"}}
-      {{#link-to "messages"}}{{format-message (intl-get 'header.menu.messages')}}{{/link-to}}
-    {{/co-layout/nav-main/applications/application}}
-    {{#co-layout/nav-main/applications/application icon="user"}}
-      {{#link-to "contacts"}}{{format-message (intl-get 'header.menu.contacts')}}{{/link-to}}
-    {{/co-layout/nav-main/applications/application}}
-  {{/co-layout/nav-main/applications}}
-
-  {{#co-layout/nav-main/actions currentApplication=currentApplication}}
-    {{#co-layout/nav-main/actions/action icon="pencil" application="messages"}}
-      {{#link-to "messages.compose"}}{{format-message (intl-get 'header.menu.compose')}}{{/link-to}}
-    {{/co-layout/nav-main/actions/action}}
-    {{#co-layout/nav-main/actions/action icon="user" application="contacts"}}
-      {{#link-to "contacts.new"}}{{format-message (intl-get 'header.menu.create_user')}}{{/link-to}}
-    {{/co-layout/nav-main/actions/action}}
-    {{#co-layout/nav-main/actions/action icon="plus" application="default"}}
-      {{#link-to "index"}}{{format-message (intl-get 'header.menu.action_default')}}{{/link-to}}
-    {{/co-layout/nav-main/actions/action}}
-  {{/co-layout/nav-main/actions}}
-{{/if}}
-
 <section role="main" class="caliopen-layout__main">
-  {{yield}}
+{{#if session.isAuthenticated }}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+  {{co-layout/main-action
+                user=user
+                currentApplication=currentApplication }}
+    </div>
+    <div class="col-md-9">
+  {{co-layout/privacy-index-slider
+                currentApplication=currentApplication }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-1 co-layout__main-slider-menu">
+      {{co-layout/importance-slider
+                    currentApplication=currentApplication }}
+    </div>
+    <div class="co-layout__main-inner-view">
+    {{yield}}
+    </div>
+  </div>
+</div>
+{{else}}
+    {{yield}}
+{{/if}}
 </section>
 
 <footer class="caliopen-layout__footer">

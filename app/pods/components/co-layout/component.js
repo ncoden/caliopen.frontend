@@ -43,9 +43,6 @@ export default Ember.Component.extend({
     },
     logout: function () {
       this.sendAction('logout');
-    },
-    selectApplication: function () {
-      this.sendAction('selectApplication', ...arguments);
     }
   }
 });
