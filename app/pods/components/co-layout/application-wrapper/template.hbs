@@ -1,0 +1,19 @@
+<div class="caliopen-layout__main-topbar">
+  <div class="caliopen-layout__main-topbar__block--action">
+    {{co-layout/main-action
+              currentApplication=currentApplication }}
+  </div>
+  <div class="caliopen-layout__main-topbar__block--privacy">
+    {{co-layout/privacy-index-slider
+              currentApplication=currentApplication }}
+  </div>
+</div>
+<div class="caliopen-layout__main-content">
+  <div class="caliopen-layout__main-content__block--importance">
+    {{co-layout/importance-slider
+              currentApplication=currentApplication }}
+  </div>
+  <div class="caliopen-layout__main-content--center">
+    {{yield}}
+  </div>
+</div>

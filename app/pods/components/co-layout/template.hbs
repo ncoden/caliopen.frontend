@@ -19,7 +19,8 @@
 
           {{co-layout/user-menu
                 user=user
-                currentApplication=currentApplication }}
+                currentApplication=currentApplication
+                logout="logout"}}
 
         {{else}}
 
@@ -37,33 +38,8 @@
   </nav>
 </header>
 
-<section role="main" class="caliopen-layout__main">
-{{#if session.isAuthenticated }}
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-3">
-  {{co-layout/main-action
-                user=user
-                currentApplication=currentApplication }}
-    </div>
-    <div class="col-md-9">
-  {{co-layout/privacy-index-slider
-                currentApplication=currentApplication }}
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-1 co-layout__main-slider-menu">
-      {{co-layout/importance-slider
-                    currentApplication=currentApplication }}
-    </div>
-    <div class="co-layout__main-inner-view">
-    {{yield}}
-    </div>
-  </div>
-</div>
-{{else}}
-    {{yield}}
-{{/if}}
+<section role="main" class="container-fluid caliopen-layout__main-container">
+  {{yield}}
 </section>
 
 <footer class="caliopen-layout__footer">

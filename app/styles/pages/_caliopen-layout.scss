@@ -3,82 +3,103 @@
 //
 // This is the style for the application layout.
 
-$footer-height:         50px;
-$footer-color:          $navbar-default-color;
-$footer-background:     $navbar-default-bg;
-$footer-border:         $navbar-default-border;
-$header-height:         60px;
+$footer-height:     50px;
+$footer-color:      $navbar-default-color;
+$footer-background:   $navbar-default-bg;
+$footer-border:     $navbar-default-border;
+$header-height:     60px;
+
+$topbar-height:     60px;
+$leftbar-width:     90px;
 
 .caliopen-layout {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 .caliopen-layout__header {
 }
 
-.caliopen-layout__main {
-    position: relative;
-    box-sizing: border-box;
-
-    // This is required for the top bar not to cover the body
-    // See http://getbootstrap.com/components/#navbar-fixed-top
-    padding-top: $header-height;
-    // push body content to make sure content doesn't overflow footer.
-    padding-bottom: $footer-height;
-
-    height: 100%;
-    width: 100%;
-
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
 .caliopen-layout__footer {
-    // Position to the page bottom
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+  // Position to the page bottom
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 
-    // force height
-    box-sizing: content-box;
-    height: $footer-height;
-    padding: 0;
-    margin: 0;
+  // force height
+  box-sizing: content-box;
+  height: $footer-height;
+  padding: 0;
+  margin: 0;
 
-    // some painting
-    background: $footer-background;
-    border-top: 1px solid $navbar-default-border;
-    color: $footer-color;
+  // some painting
+  background: $footer-background;
+  border-top: 1px solid $navbar-default-border;
+  color: $footer-color;
 }
 .caliopen-layout__footer-headline {
-    padding: 0;
-    margin: 0;
-    line-height: $footer-height;
-    text-align: center;
+  padding: 0;
+  margin: 0;
+  line-height: $footer-height;
+  text-align: center;
 }
 
-    .co-layout__main-action {
+// Main conainer. This is not scrollable and takes the whole viewport
+.caliopen-layout__main-container {
+  position: relative;
+  box-sizing: border-box;
+
+  // This is required for the top bar not to cover the body
+  // See http://getbootstrap.com/components/#navbar-fixed-top
+  padding-top: $header-height;
+  // push body content to make sure content doesn't overflow footer.
+  padding-bottom: $footer-height;
+
+  height: 100%;
+  width: 100%;
+}
+
+  .caliopen-layout__main-topbar {
+    position: relative;
+    height: $topbar-height;
+    display: block;
+  }
+    .caliopen-layout__main-topbar__block--action {
+      width: $leftbar-width;
+      float: left;
+      height: $topbar-height;
+    }
+    .caliopen-layout__main-topbar__block--privacy {
+      padding: 3px 10px;
+      margin-left: $leftbar-width;
+      height: $topbar-height;
     }
 
-    .co-layout__privacy-slider {
-        margin: 10px;
+  .caliopen-layout__main-content {
+    box-sizing: border-box;
+
+    height: calc(100% - #{$topbar-height});
+    width: 100%;
+  }
+    .caliopen-layout__main-content__block--importance {
+      float: left;
+      width: $leftbar-width;
+      margin: 10px;
+
+      & .noUi-vertical {
+        height: calc( 100vh - #{$header-height} - #{$footer-height} - 50px - #{$topbar-height} );
+        margin: auto;
+      }
+    }
+    .caliopen-layout__main-content--center {
+      position: relative;
+      margin-left: $leftbar-width;
+      overflow: auto;
     }
 
-    .co-layout__main-slider-menu {
-    }
-    .co-layout__importance-slider {
-        margin: 10px;
-
-        & > .noUi-vertical {
-            height: calc( 100vh - #{$header-height} - #{$footer-height} - 150px );
-            margin: auto;
-        }
-    }
-
-    .co-layout__main-inner-view {
-    }
-
+.co-layout__privacy-slider, .co-layout__importance-slider {
+  margin: 10px;
+}

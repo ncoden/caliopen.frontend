@@ -11,5 +11,11 @@ export default Ember.Component.extend({
 
   // attributes
   currentApplication: null,
-  user: null
+  user: null,
+
+  actions: {
+    logout: function() {
+      this.sendAction('logout', ...arguments);
+    }
+  }
 });
