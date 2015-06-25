@@ -14,6 +14,18 @@
               currentApplication=currentApplication }}
   </div>
   <div class="caliopen-layout__main-content--center">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#">{{currentApplication}}</a></li>
+      {{#each tabList as |tab|}}
+      <li>{{tab.name}}</li>
+      {{/each}}
+    </ul>
+    <p>
+      Current Privacy Index: {{privacy.min}}-{{privacy.max}}
+    </p>
+    <p>
+      Current Importance Index: {{importance.min}}-{{importance.max}}
+    </p>
     {{yield}}
   </div>
 </div>
