@@ -8,6 +8,10 @@ export default Ember.Component.extend({
   classNames: [],
   classNameBindings: ['iconClass'],
 
+  attributeBindings: ['title'],
+
+  title: '',
+
   iconClass: Ember.computed('icon', {
     get: function () {
       if (!this.get('icon')) {

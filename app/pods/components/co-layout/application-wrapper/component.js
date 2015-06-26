@@ -30,5 +30,10 @@ export default Ember.Component.extend({
     get: function () {
       return this.get('tabViewsService.tabs');
     }
+  }),
+
+  needRefresh: Ember.observer('importanceService.max', 'importanceService.min',
+                             'privacyService.max', 'privacyService.min', function () {
+      this.sendAction('refreshStores');
   })
 });

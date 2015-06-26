@@ -24,7 +24,11 @@ export default Locale.extend({
 
   'messages': {
     'index': {
-      'title': 'Messages'
+      'title': 'Messages',
+      'list_item': {
+        'importance_title': 'Level of importance',
+        'privacy_title': 'Privacy index'
+      }
     },
     'show': {
       'back': 'Back'

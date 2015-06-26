@@ -37,16 +37,38 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
 
     sessionAuthenticationSucceeded: function() {
       this.transitionTo('index');
+    },
+
+    /**
+     * refresh common stores.
+     *
+     * FIXME change this to a cleaner implmeentation.
+     * Right now, any subroute that want to refresh stores (for instance
+     * `co-layout/application-wrapper` calls it whenever privacy index or
+     * importance changes)
+     * This feels wrong for some reasons.
+     */
+    refreshStores: function () {
+      return Ember.RSVP.Promise.all([
+          this.store.unloadAll('message'),
+          this.store.unloadAll('contact')
+        ], 'unload stores')
+        .then(function () {
+          return Ember.RSVP.Promise.all([
+            this.store.findAll('message'),
+            this.store.findAll('contact')
+          ], 'reload stores');
+        }.bind(this));
     }
 
   },
 
   /**
-    * Default behaviour when landing to settings is to redirect to account
-    * settings.
-    *
-    * Taken from https://gist.github.com/nikpachoo/7369913#file-ember-redirect-js-L40
-    */
+   * Default behaviour when landing to settings is to redirect to account
+   * settings.
+   *
+   * Taken from https://gist.github.com/nikpachoo/7369913#file-ember-redirect-js-L40
+   */
   redirect: function(model, transition) {
     // If this is the index route, redirect to first item
     if( transition.targetName === 'index' ) {
