@@ -54,14 +54,14 @@ This service is injected into the Root Application Route.
 Importance is a dedicated service in charge of storing the current importance
 filter.
 
-This service is exposed as `importance` property on every route and model.
+This service is exposed as `importance` property on application adapter.
 
 ### Privacy
 
 Privacy is a dedicated service in charge of storing the current privacy index
 and filter.
 
-This service is exposed as `privacyIndex` property on every route and model.
+This service is exposed as `privacyIndex` property on application and model.
 
 ### Search
 
