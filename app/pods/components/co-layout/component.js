@@ -4,6 +4,8 @@ export default Ember.Component.extend({
   tagName: 'div',
   classNames: ['caliopen-layout'],
 
+  currentRouteName: null,
+
   // Properties
   // -------------------
 
@@ -19,9 +21,9 @@ export default Ember.Component.extend({
   // -------------------
 
   // the current application is the main level route.
-  currentApplication: Ember.computed('currentRoute', {
+  currentApplication: Ember.computed('currentRouteName', {
     get: function () {
-      var currentRoute = this.get('currentRoute') ||'';
+      var currentRoute = this.get('currentRouteName') || '';
       var application = currentRoute.split('.').shift();
 
       return application;

@@ -13,84 +13,32 @@
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
+        {{#if session.isAuthenticated }}
+          {{co-layout/application-switcher
+                currentApplication=currentApplication }}
 
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
+          {{co-layout/user-menu
+                user=user
+                currentApplication=currentApplication
+                logout="logout"}}
 
-          {{#if session.isAuthenticated }}
+        {{else}}
 
-          <li class="dropdown">
-            <a  href="#" class="dropdown-toggle" data-toggle="dropdown"
-                role="button" aria-expanded="false">
-              {{ user.username }} <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu" role="menu">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/login" {{action 'signin'}}>
+                {{format-message (intl-get 'header.menu.signin')}}
+              </a>
+            </li>
+          </ul>
 
-              {{#co-navigation-list-item}}
-                {{#link-to "settings.account"}}
-                  {{format-message (intl-get 'header.menu.account')}}
-                {{/link-to}}
-              {{/co-navigation-list-item}}
-
-              {{#co-navigation-list-item}}
-                {{#link-to "settings.app"}}
-                  {{format-message (intl-get 'header.menu.settings')}}
-                {{/link-to}}
-              {{/co-navigation-list-item}}
-
-              <li class="divider"></li>
-              <li>
-                <a href="/signout" {{action 'logout'}}>
-                  {{format-message (intl-get 'header.menu.signout')}}
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          {{else}}
-
-          <li>
-            <a href="/login" {{action 'signin'}}>
-              {{format-message (intl-get 'header.menu.signin')}}
-            </a>
-          </li>
-
-          {{/if}}
-        </ul>
+        {{/if}}
       </div>
     </div>
   </nav>
 </header>
 
-{{#if session.isAuthenticated }}
-<section class="caliopen-layout__menu">
-  <div class="co-layout-nav-main">
-    {{#co-layout/nav-main/applications}}
-        {{#co-layout/nav-main/applications/application icon="envelope"}}
-        {{#link-to "messages"}}{{format-message (intl-get 'header.menu.messages')}}{{/link-to}}
-        {{/co-layout/nav-main/applications/application}}
-        {{#co-layout/nav-main/applications/application icon="user"}}
-        {{#link-to "contacts"}}{{format-message (intl-get 'header.menu.contacts')}}{{/link-to}}
-        {{/co-layout/nav-main/applications/application}}
-    {{/co-layout/nav-main/applications}}
-
-    {{#co-layout/nav-main/actions currentApplication=currentApplication}}
-        {{#co-layout/nav-main/actions/action icon="pencil" application="messages"}}
-        {{#link-to "messages.compose"}}{{format-message (intl-get 'header.menu.compose')}}{{/link-to}}
-        {{/co-layout/nav-main/actions/action}}
-        {{#co-layout/nav-main/actions/action icon="user" application="contacts"}}
-        {{#link-to "contacts.new"}}{{format-message (intl-get 'header.menu.create_user')}}{{/link-to}}
-        {{/co-layout/nav-main/actions/action}}
-        {{#co-layout/nav-main/actions/action icon="plus" application="default"}}
-        {{#link-to "index"}}{{format-message (intl-get 'header.menu.action_default')}}{{/link-to}}
-        {{/co-layout/nav-main/actions/action}}
-    {{/co-layout/nav-main/actions}}
-  </div>
-</section>
-{{/if}}
-
-<section role="main" class="caliopen-layout__main">
+<section role="main" class="container-fluid caliopen-layout__main-container">
   {{yield}}
 </section>
 

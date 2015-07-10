@@ -8,7 +8,7 @@ var loc = window.location;
 export default DS.RESTAdapter.extend({
   host: `${loc.protocol}//${loc.host}`,
   namespace: 'api',
-  headers: Ember.computed('importance.formatRange', {
+  headers: Ember.computed('importance.formatRange', 'privacyIndex.formatRange', {
     get: function () {
       return {
         'X-CALIOPEN-IMPORTANCE': this.get('importance.formatRange'),

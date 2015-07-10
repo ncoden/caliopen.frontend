@@ -5,9 +5,10 @@ export default Locale.extend({
     'menu': {
       'messages': 'Messages',
       'contacts': 'Contacts',
-      'compose': 'Compose',
+      'compose': 'Compose Message',
       'action_default': 'Action',
-      'create_user': 'Create User',
+      'action_dropdown': 'Other Actions',
+      'create_user': 'New Contact',
       'account': 'Account',
       'settings': 'Settings',
       'signin': 'Log In',
@@ -23,7 +24,11 @@ export default Locale.extend({
 
   'messages': {
     'index': {
-      'title': 'Messages'
+      'title': 'Messages',
+      'list_item': {
+        'importance_title': 'Level of importance',
+        'privacy_title': 'Privacy index'
+      }
     },
     'show': {
       'back': 'Back'
@@ -77,6 +82,7 @@ export default Locale.extend({
 
   'login': {
     'form': {
+      'errorlabel': 'Error',
       'title': 'Sign In',
       'username': 'Username',
       'password': 'Password',

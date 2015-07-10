@@ -1,11 +1,13 @@
 {{#co-layout/application-panel/title}}{{format-message (intl-get 'messages.index.title' )}}{{/co-layout/application-panel/title}}
-<ul>
+<ol>
     {{#each model as |conversation|}}
     <li>
     {{#link-to 'messages.show' conversation}}
-    {{co-icon icon="paperclip"}} {{conversation.title}}
+    {{co-widget/icon icon="paperclip"}} {{conversation.title}}
+    {{co-widget/icon title=(format-message (intl-get 'messages.index.list_item.importance_title' )) icon="warning-sign"}} {{conversation.importance}}
+    {{co-widget/icon title=(format-message (intl-get 'messages.index.list_item.privacy_title' )) icon="eye-open"}} {{conversation.privacy}}
     {{/link-to}}
     </li>
     {{/each}}
-</ul>
+</ol>
 {{outlet}}

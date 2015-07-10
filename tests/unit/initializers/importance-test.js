@@ -10,9 +10,7 @@ module('ImportanceInitializer', {
     Ember.run(function() {
       application = Ember.Application.create();
       container = application.__container__;
-      application.register('route:dummy', Ember.Route.extend({}));
-      application.register('model:dummy', DS.Model.extend({}));
-      application.register('store:dummy', DS.Store.extend({}));
+      application.register('adapter:application', DS.RESTAdapter.extend({}));
       application.deferReadiness();
     });
   },
@@ -21,24 +19,13 @@ module('ImportanceInitializer', {
   }
 });
 
-// Replace this with your real tests.
-test('Add service to routes', function(assert) {
+test('Add service to adapter:application', function(assert) {
   initialize(container, application);
 
   Ember.run(function() {
-    var route = container.lookup('route:dummy');
-    assert.ok(route.importance);
-    assert.ok(route.get('importance'));
+    var adapter = container.lookup('adapter:application');
+    assert.ok(adapter.importance);
+    assert.ok(adapter.get('importance'));
   });
 });
 
-// Replace this with your real tests.
-test('Add service to models', function(assert) {
-  initialize(container, application);
-
-  Ember.run(function() {
-    var model = container.lookup('store:dummy').createRecord('dummy', {});
-    assert.ok(model.importance);
-    assert.ok(model.get('importance'));
-  });
-});

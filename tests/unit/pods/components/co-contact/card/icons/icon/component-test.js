@@ -5,7 +5,7 @@ import {
 
 moduleForComponent('co-contact/card/icons/icon', 'CoContactCardIconsIconComponent', {
   // specify the other units that are required for this test
-  needs: ['component:co-icon']
+  needs: ['component:co-widget/icon']
 });
 
 test('it renders', function() {

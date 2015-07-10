@@ -1,14 +1,12 @@
 /* global require, module */
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
-var isProduction = EmberApp.env() === 'production';
+//var isProduction = EmberApp.env() === 'production';
 
 var app = new EmberApp({
-  lessOptions: {
-    paths: [
-      'bower_components/bootstrap/less'
-    ],
-    sourceMap: true
+  'ember-cli-bootstrap-sassy': {
+    'glyphicons': true,
+    'js': ['dropdown']
   },
   outputPaths: {
     app: {
@@ -37,25 +35,5 @@ app.options.inlineContent = {
 // modules that you would like to import into your application
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
-app.import('bower_components/bootstrap/js/transition.js');
-app.import('bower_components/bootstrap/js/affix.js');
-app.import('bower_components/bootstrap/js/alert.js');
-app.import('bower_components/bootstrap/js/button.js');
-app.import('bower_components/bootstrap/js/carousel.js');
-app.import('bower_components/bootstrap/js/collapse.js');
-app.import('bower_components/bootstrap/js/dropdown.js');
-app.import('bower_components/bootstrap/js/modal.js');
-// popover requires tooltips
-app.import('bower_components/bootstrap/js/tooltip.js');
-app.import('bower_components/bootstrap/js/popover.js');
-app.import('bower_components/bootstrap/js/scrollspy.js');
-app.import('bower_components/bootstrap/js/tab.js');
-
-// Import bootstrap fonts
-app.import('bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot', {destDir: 'fonts'});
-app.import('bower_components/bootstrap/fonts/glyphicons-halflings-regular.svg', {destDir: 'fonts'});
-app.import('bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf', {destDir: 'fonts'});
-app.import('bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff', {destDir: 'fonts'});
-app.import('bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff2', {destDir: 'fonts'});
 
 module.exports = app.toTree();

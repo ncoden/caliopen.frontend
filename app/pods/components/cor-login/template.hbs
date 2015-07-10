@@ -1,27 +1,45 @@
 <form action="/login" method="POST" accept-charset="utf-8"
       class="cor-login__form" {{action 'authenticate' on='submit' }}>
 
-  <h3>{{format-message (intl-get 'login.form.title')}}</h3>
+  <div class="panel panel-default">
 
-  <p class="cor-login__form-row">
-    <label for="username" class="cor-login__label">
-      {{format-message (intl-get 'login.form.username')}}
-    </label>
-    {{input type="text" name="username" class="cor-login__form-input" value=username }}
-  </p>
+    <div class="panel-heading">
+      {{format-message (intl-get 'login.form.title')}}
+    </div>
 
-  <p class="cor-login__form-row">
-    <label for="password"  class="cor-login__label">
-      {{format-message (intl-get 'login.form.password')}}
-    </label>
-    {{input type="password" name="password" class="cor-login__form-input" value=password }}
-  </p>
+    <div class="panel-body">
 
-  {{yield}}
+      {{#if error }}
+      <div class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">{{format-message (intl-get 'login.form.errorlabel')}}</span>
+        {{error}}
+      </div>
+      {{/if}}
 
-  <p class="cor-login__form-row">
-    <input  type="submit" class="cor-login__form-submit"
-            value="{{format-message (intl-get 'login.form.submit')}}">
-  </p>
+      <p class="form-group cor-login__form-row">
+        <label for="username" class="cor-login__label">
+          {{format-message (intl-get 'login.form.username')}}
+        </label>
+        {{input type="text" name="username"
+                class="form-control cor-login__form-input" value=username }}
+      </p>
+
+      <p class="form-group cor-login__form-row">
+        <label for="password"  class="cor-login__label">
+          {{format-message (intl-get 'login.form.password')}}
+        </label>
+        {{input type="password" name="password"
+                class="form-control cor-login__form-input" value=password }}
+      </p>
+
+      {{yield}}
+
+      <input  type="submit" class="btn btn-primary btn-lg btn-block cor-login__form-submit"
+                value="{{format-message (intl-get 'login.form.submit')}}">
+
+    </div>
+
+  </div>
 
 </form>
