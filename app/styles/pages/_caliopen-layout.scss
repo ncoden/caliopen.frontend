@@ -8,6 +8,19 @@ $header-height:     60px;
 $topbar-height:     60px;
 $leftbar-width:     90px;
 
+@font-face {
+    font-family: 'open_sansregular';
+    src: url('fonts/Open_Sans/opensans-regular-webfont.eot');
+    src: url('fonts/Open_Sans/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Open_Sans/opensans-regular-webfont.woff2') format('woff2'),
+         url('fonts/Open_Sans/opensans-regular-webfont.woff') format('woff'),
+         url('fonts/Open_Sans/opensans-regular-webfont.ttf') format('truetype'),
+         url('fonts/Open_Sans/opensans-regular-webfont.svg#open_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 .caliopen-layout {
   position: absolute;
   top: 0;
