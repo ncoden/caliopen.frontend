@@ -103,16 +103,12 @@ More about User Settings Application in [dedicated documentation](./applications
 
 This application is in charge of contact management.
 
-### Messages
+### Discussions
 
-This application is in charge of contact management.
+This application is in charge of thread management.
 
-More about Account Application in [dedicated documentation](./applications/04-messages.markdown).
+More about Account Application in [dedicated documentation](./applications/04-discussions.markdown).
 
 ## UI components
 
 CaliOpen relies on Ember components for the UI.
-
-
-
-

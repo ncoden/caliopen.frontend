@@ -7,9 +7,13 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route("login", {path: '/login'});
-  this.route("messages", function() {
-    this.route("show", {path: "/:message_id"}, function () {});
-    this.route("compose");
+  this.route("discussions", function() {
+    this.route("index");
+    this.route("new");
+    this.route("thread", { path: "/:thread_id" }, function() {
+      this.route("index");
+      this.route("message", { path: "/:message_id" });
+    });
   });
   this.route("contacts", function() {
     this.route("tags", {path: "/tags/:tag_id"});

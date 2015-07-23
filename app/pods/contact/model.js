@@ -31,6 +31,8 @@ export default DS.Model.extend({
     get: function () {
       return this.get('family_name');
     }
-  })
+  }),
+
+  thread: DS.hasMany('thread')
 
 });

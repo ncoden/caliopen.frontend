@@ -6,19 +6,18 @@
 $header-height:     60px;
 
 $topbar-height:     60px;
-$leftbar-width:     90px;
+$leftbar-width:     60px;
 
 @font-face {
-    font-family: 'open_sansregular';
-    src: url('fonts/Open_Sans/opensans-regular-webfont.eot');
-    src: url('fonts/Open_Sans/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/Open_Sans/opensans-regular-webfont.woff2') format('woff2'),
-         url('fonts/Open_Sans/opensans-regular-webfont.woff') format('woff'),
-         url('fonts/Open_Sans/opensans-regular-webfont.ttf') format('truetype'),
-         url('fonts/Open_Sans/opensans-regular-webfont.svg#open_sansregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
+  font-family: 'open_sansregular';
+  src: url('fonts/Open_Sans/opensans-regular-webfont.eot');
+  src: url('fonts/Open_Sans/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('fonts/Open_Sans/opensans-regular-webfont.woff2') format('woff2'),
+       url('fonts/Open_Sans/opensans-regular-webfont.woff') format('woff'),
+       url('fonts/Open_Sans/opensans-regular-webfont.ttf') format('truetype'),
+       url('fonts/Open_Sans/opensans-regular-webfont.svg#open_sansregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .caliopen-layout {
@@ -34,7 +33,7 @@ $leftbar-width:     90px;
     height: $line-height-computed;
   }
 
-// Main conainer. This is not scrollable and takes the whole viewport
+// Main container. This is not scrollable and takes the whole viewport
 .caliopen-layout__main-container {
   position: relative;
   box-sizing: border-box;
@@ -47,43 +46,42 @@ $leftbar-width:     90px;
   width: 100%;
 }
 
-  .caliopen-layout__main-topbar {
-    position: relative;
-    height: $topbar-height;
-    display: block;
+  .caliopen-layout__block--importance {
+    margin-top: 30px;
+
+    & .noUi-vertical {
+      height: calc( 100vh - #{$header-height} - 50px - #{$topbar-height} );
+      margin: auto;
+    }
   }
-    .caliopen-layout__main-topbar__block--action {
-      width: $leftbar-width;
-      float: left;
-      height: $topbar-height;
+
+  @media (min-width: $screen-md-min) {
+    .caliopen-layout__block--importance {
+      width: 4%;
     }
-    .caliopen-layout__main-topbar__block--privacy {
-      padding: 3px 10px;
-      margin-left: $leftbar-width;
-      height: $topbar-height;
+  }
+
+  @media (min-width: $screen-md-min) {
+    .caliopen-layout__block--container {
+      width: 96%;
     }
+  }
+
+  .caliopen-layout__tabs {
+    margin-top: 22px;
+
+    &.nav-tabs, &.nav-tabs li a, &.nav-tabs li.active a {
+      border: none;
+    }
+    &.nav-tabs li a, &.nav-tabs li a:hover, &.nav-tabs li a:focus {
+      background-color: $caliopen-color-2;
+    }
+  }
 
   .caliopen-layout__main-content {
-    box-sizing: border-box;
-
-    height: calc(100% - #{$topbar-height});
-    width: 100%;
+    background-color: $caliopen-color-2;
+    padding-top: 45px;
   }
-    .caliopen-layout__main-content__block--importance {
-      float: left;
-      width: $leftbar-width;
-      margin: 10px;
-
-      & .noUi-vertical {
-        height: calc( 100vh - #{$header-height} - 50px - #{$topbar-height} );
-        margin: auto;
-      }
-    }
-    .caliopen-layout__main-content--center {
-      position: relative;
-      margin-left: $leftbar-width;
-      overflow: auto;
-    }
 
 .co-layout__privacy-slider, .co-layout__importance-slider {
   margin: 10px;

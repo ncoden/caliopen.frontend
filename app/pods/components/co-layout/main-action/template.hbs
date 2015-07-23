@@ -1,22 +1,7 @@
-<div class="btn-group">
-  {{#link-to currentAction.route
-              classNames="btn btn-info btn-lg"
-              title=(intl-get currentAction.text)}}
-    {{co-widget/icon icon=currentAction.icon}}
-    <span class="sr-only">{{format-message (intl-get currentAction.text)}}</span>
-  {{/link-to}}
-  <button type="button" class="btn btn-info btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <span class="caret"></span>
-    <span class="sr-only">{{format-message (intl-get 'header.menu.action_dropdown')}}</span>
-  </button>
-  <ul class="dropdown-menu">
-    {{#each otherActions as |action| }}
-    {{#co-widget/link-li}}
-      {{#link-to action.route}}
-        {{co-widget/icon icon=action.icon}}
-        {{format-message (intl-get action.text)}}
-      {{/link-to}}
-    {{/co-widget/link-li}}
-    {{/each}}
-  </ul>
-</div>
+{{#link-to currentAction.route
+  classNames="btn btn-info btn-lg"
+  title=(intl-get currentAction.text)}}
+  {{co-widget/icon icon=currentAction.icon}}
+  {{format-message (intl-get currentAction.text)}}
+  <span class="sr-only">{{format-message (intl-get currentAction.text)}}</span>
+{{/link-to}}

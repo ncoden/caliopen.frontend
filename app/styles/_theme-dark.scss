@@ -1,6 +1,6 @@
 // caliopen defaults
 $caliopen-color-1: #ffffff;
-$caliopen-color-2: #1d1d1d;
+$caliopen-color-2: #333333;
 $caliopen-color-3: #294f5c;
 $caliopen-color-4: #3386a2;
 $caliopen-color-5: #97b707;
@@ -14,8 +14,11 @@ $gray:          darken($gray-base, 33.5%);
 $gray-dark:     darken($gray-base, 46.7%);
 $gray-darker:   darken($gray-base, 93.5%);
 
+// layout
+$body-bg: #1d1d1d;
+
 // navbar
-$navbar-inverse-bg: #333333;
+$navbar-inverse-bg: $caliopen-color-2;
 
 // dropdown
 $dropdown-bg: #333333;
@@ -25,3 +28,6 @@ $dropdown-link-hover-color: lighten($gray-lighter, 5%);
 $dropdown-divider-bg: $caliopen-color-2;
 // components
 $component-active-color: $gray-light;
+
+// badges
+$badge-bg: $gray-darker;

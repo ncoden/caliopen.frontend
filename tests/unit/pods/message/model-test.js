@@ -5,7 +5,10 @@ import {
 
 moduleForModel('message', 'Message', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: [
+    'model:thread',
+    'model:contact'
+  ]
 });
 
 test('it exists', function() {

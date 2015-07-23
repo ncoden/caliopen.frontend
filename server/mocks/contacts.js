@@ -32,7 +32,7 @@ module.exports = function(app) {
              x.privacy <= privacy.max;
     });
     next();
-  })
+  });
 
   contactsRouter.get('/', function(req, res) {
     res.send({
@@ -46,7 +46,7 @@ module.exports = function(app) {
   });
 
   contactsRouter.get('/:id', function(req, res) {
-    var contact = _.find(req.contacts, {id: req.params.id});
+    var contact = _.find(req.contacts, {contact_id: req.params.id});
     if (!contact) {
       return res
         .status(404)
