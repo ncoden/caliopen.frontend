@@ -6,7 +6,7 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 var app = new EmberApp({
   'ember-cli-bootstrap-sassy': {
     'glyphicons': true,
-    'js': ['dropdown']
+    'js': ['dropdown', 'collapse', 'transition']
   },
   outputPaths: {
     app: {
