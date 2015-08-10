@@ -51,12 +51,14 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     refreshStores: function () {
       return Ember.RSVP.Promise.all([
           this.store.unloadAll('message'),
-          this.store.unloadAll('contact')
+          this.store.unloadAll('contact'),
+          this.store.unloadAll('thread')
         ], 'unload stores')
         .then(function () {
           return Ember.RSVP.Promise.all([
             this.store.findAll('message'),
-            this.store.findAll('contact')
+            this.store.findAll('contact'),
+            this.store.findAll('thread')
           ], 'reload stores');
         }.bind(this));
     }

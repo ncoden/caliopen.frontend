@@ -13,8 +13,8 @@
           <!-- {{co-widget/icon icon="paperclip"}}  -->
         </div>
         <div class="col-md-1 hidden-sm hidden-xs">
-          <!-- {{co-widget/icon title=(format-message (intl-get 'messages.index.list_item.importance_title' )) icon="warning-sign"}} {{thread.importance}}
-          {{co-widget/icon title=(format-message (intl-get 'messages.index.list_item.privacy_title' )) icon="eye-open"}} {{thread.privacy}} -->
+          {{co-widget/icon title=(format-message (intl-get 'messages.index.list_item.importance_title' )) icon="warning-sign"}} {{thread.importance}}
+          {{co-widget/icon title=(format-message (intl-get 'messages.index.list_item.privacy_title' )) icon="eye-open"}} {{thread.privacy}}
         </div>
         <div class="col-md-2 col-sm-2 hidden-xs">
           {{co-thread/date-last-message messages=thread.messages}}
@@ -25,4 +25,5 @@
         {{/co-thread/thread}}
     {{/link-to}}
   {{/each}}
+  {{outlet}}
 </div>
