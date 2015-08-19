@@ -59,7 +59,7 @@ module.exports = function(app) {
   });
 
   threadsRouter.get('/:id', function(req, res) {
-    var thread = _.find(req.threads, {id: req.params.id});
+    var thread = _.find(req.threads, {thread_id: parseInt(req.params.id)});
     if (!thread) {
       return res
         .status(404)

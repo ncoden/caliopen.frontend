@@ -68,15 +68,61 @@ $leftbar-width:     60px;
   }
 
   .caliopen-layout__tabs {
+    background-color: $body-bg;
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
     margin-top: 22px;
-
-    &.nav-tabs, &.nav-tabs li a, &.nav-tabs li.active a {
-      border: none;
-    }
-    &.nav-tabs li a, &.nav-tabs li a:hover, &.nav-tabs li a:focus {
-      background-color: $caliopen-color-2;
-    }
   }
+
+  .caliopen-layout__tabs:before,
+  .caliopen-layout__tabs:after {
+    content: " ";
+    display: table;
+  }
+  .caliopen-layout__tabs:after {
+    clear: both;
+  }
+
+    .caliopen-layout__tabs__item {
+      float: left;
+      margin-bottom: -1px;
+      position: relative;
+      display: block;
+    }
+
+
+      .caliopen-layout__tabs__item__link {
+        color: darken($caliopen-color-1, 50);
+        border-bottom: 4px solid $body-bg;
+        border-top: 4px solid $body-bg;
+        background-color: $caliopen-color-2;
+        margin-right: 2px;
+        position: relative;
+        display: block;
+        padding: 10px 30px 10px 15px;
+      }
+      .caliopen-layout__tabs__item__link--first {
+        padding: 10px 15px;
+      }
+      .caliopen-layout__tabs__item__link:hover,
+      .caliopen-layout__tabs__item__link:focus {
+        //reset bootstrap
+        text-decoration: none;
+        color: darken($caliopen-color-1, 30);
+      }
+
+      .caliopen-layout__tabs__item__link--active {
+        color: $caliopen-color-1;
+        border-bottom: 4px solid transparent;
+        border-top: 4px solid transparent;
+      }
+
+      .caliopen-layout__tabs__item__del-btn {
+        position: absolute;
+        right: 10px;
+        top: 14px;
+      }
 
   .caliopen-layout__main-content {
     background-color: $caliopen-color-2;

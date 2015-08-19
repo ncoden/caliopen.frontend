@@ -1,6 +1,6 @@
 <div class="container-fluid">
   {{#each model as |thread|}}
-    {{#link-to 'discussions.thread' thread}}
+    {{#co-layout/tabbable-link-to 'discussions.thread' thread label=thread.subject}}
       {{#co-thread/thread thread=thread}}
         <div class="col-md-1 col-sm-1 col-xs-2">{{co-thread/contacts-icon contacts=thread.contacts}}</div>
         <div class="col-md-6 col-sm-8 col-xs-9">
@@ -23,7 +23,7 @@
           {{co-thread/count-messages messages=thread.messages}}
         </div>
         {{/co-thread/thread}}
-    {{/link-to}}
+    {{/co-layout/tabbable-link-to}}
   {{/each}}
   {{outlet}}
 </div>

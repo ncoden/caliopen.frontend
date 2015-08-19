@@ -19,12 +19,7 @@
               currentApplication=currentApplication }}
   </div>
   <div class="caliopen-layout__block--container col-md-11 col-sm-12 col-xs-12">
-    <ul class="caliopen-layout__tabs nav nav-tabs ">
-      <li class="active">{{#link-to currentApplication}}{{currentApplication}}{{/link-to}}</li>
-      {{#each tabList as |tab|}}
-      <li>{{tab.name}}</li>
-      {{/each}}
-    </ul>
+    {{co-layout/tab-list currentApplication=currentApplication remove="closeTab"}}
     <div class="caliopen-layout__main-content">
       {{yield}}
     </div>

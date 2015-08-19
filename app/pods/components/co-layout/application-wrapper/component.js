@@ -9,7 +9,6 @@ export default Ember.Component.extend({
 
   privacyService: Ember.inject.service('privacy-index'),
   importanceService: Ember.inject.service('importance'),
-  tabViewsService: Ember.inject.service('tab-views'),
 
   // attributes
   currentApplication: null,
@@ -26,14 +25,13 @@ export default Ember.Component.extend({
     }
   }),
 
-  tabList: Ember.computed('tabViewsService.tabs', {
-    get: function () {
-      return this.get('tabViewsService.tabs');
-    }
-  }),
-
   needRefresh: Ember.observer('importanceService.max', 'importanceService.min',
                              'privacyService.max', 'privacyService.min', function () {
       this.sendAction('refreshStores');
-  })
+  }),
+  actions: {
+    closeTab: function(tab) {
+      this.sendAction('closeTab', tab);
+    }
+  }
 });
