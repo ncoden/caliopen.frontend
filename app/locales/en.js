@@ -3,9 +3,10 @@ export default Locale.extend({
   locale: 'en',
   'header': {
     'menu': {
+      'discussions': 'Discussions',
       'messages': 'Messages',
       'contacts': 'Contacts',
-      'compose': 'Compose Message',
+      'compose': 'Compose',
       'action_default': 'Action',
       'action_dropdown': 'Other Actions',
       'create_user': 'New Contact',

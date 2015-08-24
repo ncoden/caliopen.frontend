@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  {{#each model as |thread|}}
+    {{#link-to 'discussions.thread' thread}}
+      {{#co-thread/thread thread=thread}}
+        <div class="col-md-1 col-sm-1 col-xs-2">{{co-thread/contacts-icon contacts=thread.contacts}}</div>
+        <div class="col-md-6 col-sm-8 col-xs-9">
+          {{co-thread/contacts contacts=thread.contacts}}
+          <span class="caliopen-threads__thread__message-summary">
+            {{thread.subject}}
+          </span>
+        </div>
+        <div class="col-md-1 col-sm-1 col-xs-1">
+          <!-- {{co-widget/icon icon="paperclip"}}  -->
+        </div>
+        <div class="col-md-1 hidden-sm hidden-xs">
+          <!-- {{co-widget/icon title=(format-message (intl-get 'messages.index.list_item.importance_title' )) icon="warning-sign"}} {{thread.importance}}
+          {{co-widget/icon title=(format-message (intl-get 'messages.index.list_item.privacy_title' )) icon="eye-open"}} {{thread.privacy}} -->
+        </div>
+        <div class="col-md-2 col-sm-2 hidden-xs">
+          {{co-thread/date-last-message messages=thread.messages}}
+        </div>
+        <div class="col-md-1 hidden-sm hidden-xs">
+          {{co-thread/count-messages messages=thread.messages}}
+        </div>
+        {{/co-thread/thread}}
+    {{/link-to}}
+  {{/each}}
+</div>

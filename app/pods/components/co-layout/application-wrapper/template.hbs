@@ -1,31 +1,27 @@
-<div class="caliopen-layout__main-topbar">
-  <div class="caliopen-layout__main-topbar__block--action">
+<div class="caliopen-layout__main-topbar row">
+  <div class="caliopen-layout__main-topbar__block--action col-md-2">
     {{co-layout/main-action
               currentApplication=currentApplication }}
   </div>
-  <div class="caliopen-layout__main-topbar__block--privacy">
+  <div class="caliopen-layout__main-topbar__block--privacy col-md-10">
     {{co-layout/privacy-index-slider
               currentApplication=currentApplication }}
   </div>
 </div>
-<div class="caliopen-layout__main-content">
-  <div class="caliopen-layout__main-content__block--importance">
+<div class="row">
+  <div class="caliopen-layout__block--importance col-md-1 hidden-sm hidden-xs">
     {{co-layout/importance-slider
               currentApplication=currentApplication }}
   </div>
-  <div class="caliopen-layout__main-content--center">
-    <ul class="nav nav-tabs">
-      <li class="active"><a href="#">{{currentApplication}}</a></li>
+  <div class="caliopen-layout__block--container col-md-11 col-sm-12 col-xs-12">
+    <ul class="caliopen-layout__tabs nav nav-tabs ">
+      <li class="active">{{#link-to currentApplication}}{{currentApplication}}{{/link-to}}</li>
       {{#each tabList as |tab|}}
       <li>{{tab.name}}</li>
       {{/each}}
     </ul>
-    <p>
-      Current Privacy Index: {{privacy.min}}-{{privacy.max}}
-    </p>
-    <p>
-      Current Importance Index: {{importance.min}}-{{importance.max}}
-    </p>
-    {{yield}}
+    <div class="caliopen-layout__main-content">
+      {{yield}}
+    </div>
   </div>
 </div>

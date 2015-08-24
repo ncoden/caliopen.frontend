@@ -72,7 +72,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
   redirect: function(model, transition) {
     // If this is the index route, redirect to first item
     if( transition.targetName === 'index' ) {
-      this.transitionTo('messages');
+      this.transitionTo('discussions');
     }
   },
 

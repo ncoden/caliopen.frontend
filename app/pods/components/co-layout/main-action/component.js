@@ -16,8 +16,8 @@ export default Ember.Component.extend({
 
   actions: [
     {application: '', icon: 'plus', text: 'header.menu.action_default', route: 'index'},
-    {application: 'messages', icon: 'envelope', text: 'header.menu.compose', route: 'messages.compose'},
-    {application: 'contacts', icon: 'user', text: 'header.menu.create_user', route: 'contacts.new'}
+    {application: 'discussions', icon: 'plus', text: 'header.menu.compose', route: 'discussions.new'},
+    {application: 'contacts', icon: 'plus', text: 'header.menu.create_user', route: 'contacts.new'}
   ],
 
   // computed properties
@@ -38,13 +38,4 @@ export default Ember.Component.extend({
       return actions[0];
     }
   }),
-
-  otherActions: Ember.computed('currentApplication', {
-    get: function () {
-      return this.actions.filter((item) => {
-        return item.application.length &&
-                item.application !== this.get('currentApplication');
-      });
-    }
-  })
 });

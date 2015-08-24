@@ -13,6 +13,8 @@ moduleForModel('contact', 'Contact', {
     'model:contact/im',
     'model:contact/key',
     'model:contact/organization',
+    'model:thread',
+    'model:message'
   ]
 });
 

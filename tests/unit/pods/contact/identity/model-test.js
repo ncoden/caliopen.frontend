@@ -14,6 +14,7 @@ moduleForModel('contact/identity', 'ContactIdentity', {
     'model:contact/im',
     'model:contact/key',
     'model:contact/organization',
+    'model:thread'
   ]
 });
 

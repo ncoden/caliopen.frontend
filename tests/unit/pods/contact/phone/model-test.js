@@ -14,6 +14,7 @@ moduleForModel('contact/phone', 'ContactPhone', {
     'model:contact/im',
     'model:contact/key',
     'model:contact/organization',
+    'model:thread'
   ]
 });
 
