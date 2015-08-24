@@ -8,6 +8,11 @@
               currentApplication=currentApplication }}
   </div>
 </div>
+
+<!-- FIXME unable to refresh view whithout displaying current indexes -->
+<div class="row">Current Privacy Index: {{privacy.min}}-{{privacy.max}}</div>
+<div class="row">Current importance: {{importance.min}}-{{importance.max}}</div>
+
 <div class="row">
   <div class="caliopen-layout__block--importance col-md-1 hidden-sm hidden-xs">
     {{co-layout/importance-slider
