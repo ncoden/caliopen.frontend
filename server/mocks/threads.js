@@ -28,13 +28,15 @@ module.exports = function(app) {
   var threadsRouter = express.Router();
 
   threadsRouter.use(function(req, res, next) {
+    const importance = req.header('X-CALIOPEN-IMPORTANCE') || '0-100';
+    const privacy = req.header('X-CALIOPEN-PRIVACY-INDEX') || '0-100';
     var importance = {
-      min: parseInt(req.header('X-CALIOPEN-IMPORTANCE').split(':')[0], 10),
-      max: parseInt(req.header('X-CALIOPEN-IMPORTANCE').split(':')[1], 10)
+      min: parseInt(importance.split(':')[0], 10),
+      max: parseInt(importance.split(':')[1], 10)
     };
     var privacy = {
-      min: parseInt(req.header('X-CALIOPEN-PRIVACY-INDEX').split(':')[0], 10),
-      max: parseInt(req.header('X-CALIOPEN-PRIVACY-INDEX').split(':')[1], 10)
+      min: parseInt(privacy.split(':')[0], 10),
+      max: parseInt(privacy.split(':')[1], 10)
     };
 
     req.threads = threads.filter(function (x) {
