@@ -2,7 +2,9 @@ import Ember from 'ember';
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
+  session: Ember.inject.service(),
   intl: Ember.inject.service(),
+
   beforeModel: function () {
     var language = navigator.language || navigator.browserLanguage;
     this.get('intl').setLocale(language);
