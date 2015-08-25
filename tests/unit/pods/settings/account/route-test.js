@@ -25,7 +25,7 @@ test('it exists', function() {
 test('it should redirect from index to profile', function () {
   expect(1);
 
-  var route = this.subject();
+   this.subject();
 
   visit('/settings').then(function() {
     ok(

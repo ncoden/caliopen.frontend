@@ -29,7 +29,7 @@ test('it should display no contact icons', function () {
   expect(1);
 
   // creates the component instance
-  var component = this.subject();
+  this.subject();
 
   equal(this.$('.caliopen-threads__thread__contact-icon__letter').length, 0);
 

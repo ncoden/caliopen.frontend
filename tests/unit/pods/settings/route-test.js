@@ -27,7 +27,7 @@ test('it exists', function() {
 test('it should redirect from index to account', function () {
   expect(1);
 
-  var route = this.subject();
+  this.subject();
 
   visit('/settings').then(function() {
     ok(
