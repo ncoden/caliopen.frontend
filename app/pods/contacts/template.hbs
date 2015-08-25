@@ -10,7 +10,7 @@
               {{format-message (intl-get 'contacts.tags.all')}}
             {{/link-to}}
           </li>
-          {{#each tag in attrs.tags}}
+          {{#each attrs.tags as |tag|}}
           <li>
             {{#link-to 'contacts.tags' tag }}
               {{tag.title}}
