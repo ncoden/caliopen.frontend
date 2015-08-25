@@ -10,22 +10,23 @@ module.exports = function(environment) {
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
-        // https://github.com/emberjs/ember.js/blob/master/FEATURES.md
-        // Waiting for 0.11 to have those active
-        //'ember-htmlbars-component-generation': true,
-        //'ember-htmlbars-attribute-syntax': true
       }
     },
 
+    intl: {
+      defaultLocale: 'en-us',
+      locales: ['en-us']
+    },
+
     APP: {
-      // Configure ember-cli-i18n. For further information, see
-      // https://github.com/dockyard/ember-cli-i18n#configuration
-      defaultLocale: 'en'
     }
   };
 
   ENV['simple-auth'] = {
-    authenticationRoute: 'login'
+    base: {
+      authenticationRoute: 'login',
+      store: 'session-store:local-storage',
+    }
   };
 
   if (environment === 'development') {

@@ -1,7 +1,7 @@
 import TabViews from '../services/tab-views';
 
-export function initialize(container, application) {
-  application.register('service:tab-views', TabViews);
+export function initialize(registry/* , application*/) {
+  registry.register('service:tab-views', TabViews);
 }
 
 export default {

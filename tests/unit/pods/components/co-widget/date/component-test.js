@@ -27,10 +27,7 @@ test('it should display nothing', function () {
   expect(1);
 
   // creates the component instance
-  var component = this.subject();
-
-  Ember.run(function () {
-  });
+  this.subject();
 
   equal(this.$().text().trim(), '');
 });

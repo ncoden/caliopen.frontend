@@ -14,7 +14,10 @@ export default Ember.Component.extend({
   currentApplication: null,
   user: null,
 
-  actions: [
+  /**
+   * A list of possible
+   */
+  menuEntries: [
     {application: '', icon: 'plus', text: 'header.menu.action_default', route: 'index'},
     {application: 'discussions', icon: 'plus', text: 'header.menu.compose', route: 'discussions.new'},
     {application: 'contacts', icon: 'plus', text: 'header.menu.create_user', route: 'contacts.new'}
@@ -23,19 +26,20 @@ export default Ember.Component.extend({
   // computed properties
   currentAction: Ember.computed('currentApplication', {
     get: function () {
-      let actions = this.actions.filter((item) => {
+      let entries = this.get('menuEntries');
+      entries = entries.filter((item) => {
         return item.application.length &&
                 item.application === this.get('currentApplication');
       });
 
-      if (!actions.length) {
+      if (!entries.length) {
         // No action for current application? return the default one.
-        actions = this.actions.filter((item) => {
+        entries = this.get('menuEntries').filter((item) => {
           return !item.application.length;
         });
       }
 
-      return actions[0];
+      return entries[0];
     }
   }),
 });

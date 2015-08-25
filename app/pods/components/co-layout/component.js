@@ -1,10 +1,15 @@
 import Ember from 'ember';
 
+const { service } = Ember.inject;
+
 export default Ember.Component.extend({
   tagName: 'div',
   classNames: ['caliopen-layout'],
 
   currentRouteName: null,
+
+  // services
+  session: service('session'),
 
   // Properties
   // -------------------
@@ -31,9 +36,9 @@ export default Ember.Component.extend({
   }),
 
   // the current logged in user
-  user: Ember.computed('session.secure', {
+  user: Ember.computed('session.store', {
     get: function () {
-      return this.get('session.secure');
+      return this.get('session.store');
     }
   }),
 

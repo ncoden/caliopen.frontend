@@ -17,13 +17,15 @@ module.exports = function(app) {
   var express = require('express');
   var contactsRouter = express.Router();
   contactsRouter.use(function (req, res, next) {
+    const importanceHeader = req.header('X-CALIOPEN-IMPORTANCE') || '0:100';
+    const privacyHeader = req.header('X-CALIOPEN-PRIVACY-INDEX') || '0:100';
     var importance = {
-      min: parseInt(req.header('X-CALIOPEN-IMPORTANCE').split(':')[0], 10),
-      max: parseInt(req.header('X-CALIOPEN-IMPORTANCE').split(':')[1], 10)
+      min: parseInt(importanceHeader.split(':')[0], 10),
+      max: parseInt(importanceHeader.split(':')[1], 10)
     };
     var privacy = {
-      min: parseInt(req.header('X-CALIOPEN-PRIVACY-INDEX').split(':')[0], 10),
-      max: parseInt(req.header('X-CALIOPEN-PRIVACY-INDEX').split(':')[1], 10)
+      min: parseInt(privacyHeader.split(':')[0], 10),
+      max: parseInt(privacyHeader.split(':')[1], 10)
     };
     req.contacts = contacts.filter(function (x) {
       return x.importance >= importance.min &&

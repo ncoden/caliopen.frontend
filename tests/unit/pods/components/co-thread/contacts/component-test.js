@@ -27,7 +27,7 @@ test('it should display no contacts', function () {
   expect(1);
 
   // creates the component instance
-  var component = this.subject();
+  this.subject();
 
   equal(this.$().text(), '');
 

@@ -1,8 +1,8 @@
 import Importance from '../services/importance';
 
-export function initialize(container, application) {
-  application.register('service:importance', Importance);
-  application.inject('adapter', 'importance', 'service:importance');
+export function initialize(registry/* , application*/) {
+  registry.register('service:importance', Importance);
+  registry.injection('adapter', 'importance', 'service:importance');
 }
 
 export default {
