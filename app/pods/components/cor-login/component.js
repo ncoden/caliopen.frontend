@@ -3,10 +3,15 @@
  */
 import Ember from 'ember';
 
+const { service } = Ember.inject;
+
 export default Ember.Component.extend({
   tagName: 'div',
   classNames: ['cor-login'],
   classNameBindings: ['isLoading:is-loading'],
+
+  // services
+  session: service('session'),
 
 
   // properties
