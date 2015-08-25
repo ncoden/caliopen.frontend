@@ -7,6 +7,10 @@ module.exports = function(environment) {
     environment: environment,
     baseURL: '/app/',
     locationType: 'auto',
+    intl: {
+      defaultLocale: 'en-us',
+      locales: ['en-us']
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -18,9 +22,6 @@ module.exports = function(environment) {
     },
 
     APP: {
-      // Configure ember-cli-i18n. For further information, see
-      // https://github.com/dockyard/ember-cli-i18n#configuration
-      defaultLocale: 'en'
     }
   };
 
