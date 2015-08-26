@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
+import ENV from 'caliopen-frontend/config/environment';
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
   session: Ember.inject.service(),
@@ -7,6 +8,9 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
 
   beforeModel: function () {
     var language = navigator.language || navigator.browserLanguage;
+    if (ENV.intl.locales.indexOf(language) === -1) {
+      language = ENV.intl.defaultLocale;
+    }
     this.get('intl').setLocale(language);
   },
 
