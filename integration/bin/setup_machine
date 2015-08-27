@@ -1,0 +1,100 @@
+#!/bin/bash
+CRON_USER="root"
+BRANCH="master"
+GITHUB_PROJECT_URL="https://raw.githubusercontent.com/CaliOpen/caliopen.frontend/$BRANCH"
+
+set -x
+
+function ensure_cronjob_exists {
+  CRONINTERVAL="$1"
+  CRONJOB="$2"
+  if [[ -z "$CRONJOB" ]]
+  then
+    echo "You must provide a cron interval and job argument";
+    exit 1;
+  fi
+
+  current_cron=$(crontab -l | grep -v "${CRONJOB}")
+  echo -e "${current_cron}\n${CRONINTERVAL} ${CRONJOB}" | crontab -u "${CRON_USER}" -
+}
+
+
+function install_base {
+  apt-get update && \
+  apt-get upgrade && \
+  apt-get install -yf \
+    ca-certificates \
+    git \
+    wget \
+    nginx
+
+}
+
+function create_integ_user {
+  declare USER_EXISTS=$(grep integ /etc/passwd| wc -l)
+  [[ "$USER_EXISTS" -ne "0" ]] || useradd -r -m integ
+  [[ -d /srv ]] || mkdir /srv
+  chown integ:integ /srv
+}
+
+function install_node {
+  if command -v npm >/dev/null 2>&1 ; then
+    return
+  fi
+
+  declare VERSION="0.12.7"
+  declare PLATFORM="linux-x64"
+  declare NODE_PATH="/var/nodejs"
+
+  wget --ca-directory=/etc/ssl/certs/ "https://nodejs.org/dist/v${VERSION}/node-v${VERSION}-${PLATFORM}.tar.gz" -O /tmp/node.tar.gz
+  mkdir $NODE_PATH
+  tar -xvzf /tmp/node.tar.gz --directory $NODE_PATH
+  ln -s "${NODE_PATH}/node-v${VERSION}-${PLATFORM}/bin/node" /usr/bin/node
+  ${NODE_PATH}/node-v${VERSION}-${PLATFORM}/bin/npm install -g npm@latest
+  ln -s "${NODE_PATH}/node-v${VERSION}-${PLATFORM}/bin/npm" /usr/bin/npm
+
+}
+
+function install_pm2 {
+
+  #install pm2, the deamon that restart crashed process
+  npm install -g pm2@latest
+  if [[ $(grep PM2_HOME /etc/profile | wc -l) -eq 0 ]]
+  then
+    echo "export PM2_HOME=/home/integ/.pm2" > /etc/profile
+    source /etc/profile
+  fi
+
+  # create a health endpoint on http://localhost:9615
+  su integ -c "pm2 start && pm2 web && pm2 save"
+
+  # Make pm2 a service
+  [[ -e /etc/init.d/pm2-init.sh ]] || PATH=$PATH:/usr/local/bin pm2 startup -u integ
+  service pm2-init.sh start
+
+}
+
+# Add check-and-restart to crontab
+# Every 5 minutes, the repository will be fectched, scripts updated and
+# services restarted
+function configure_cronjob {
+  wget "${GITHUB_PROJECT_URL}/integration/bin/check-and-restart" -O /root/check-and-restart-caliopen.frontend && \
+    chmod +x /root/check-and-restart-caliopen.frontend
+  ensure_cronjob_exists "*/5 * * * *" "/root/check-and-restart-caliopen.frontend"
+}
+
+# Install nginx configuration
+#
+function configure_nginx {
+  wget "${GITHUB_PROJECT_URL}/integration/nginx/sites-available/frontend" -O /etc/nginx/sites-available/caliopen.frontend
+  [[ ! -e /etc/nginx/sites-enabled/default ]] || rm /etc/nginx/sites-enabled/default
+  ln -fs /etc/nginx/sites-available/caliopen.frontend /etc/nginx/sites-enabled/caliopen.frontend
+}
+
+install_base && \
+  create_integ_user  && \
+  install_node && \
+  install_pm2 && \
+  configure_cronjob && \
+  configure_nginx && \
+  /root/check-and-restart-caliopen.frontend
