@@ -19,6 +19,31 @@ BRANCH="master"
 GITHUB=https://github.com/CaliOpen/caliopen.frontend.git
 LOGFILE=/var/log/${REPOSITORY/\/srv\//}.log
 
+COMMAND="node_modules/.bin/ember"
+ARGS="serve --port 3000 --live-reload false --environment 'production'"
+
+# Update/install.
+# Executed whenever the code changed
+function deploy {
+    cd ${REPOSITORY}
+    # Install updates
+    # copy configuration
+    cp "$REPOSITORY/integration/nginx/sites-available/frontend" "/etc/nginx/sites-available/caliopen.frontend"
+    cp "$REPOSITORY/integration/bin/check-and-restart" /root/check-and-restart-caliopen.frontend && \
+        chmod +x /root/check-and-restart-caliopen.frontend
+
+    # Build project
+    $SU "cd $REPOSITORY && \
+        npm prune && \
+        npm i && \
+        npm install bower@latest && \
+        bower install"
+
+    echo "Restart $SERVICE" | logger -t CALIOPEN_FRONTEND
+    service nginx restart
+    service pm2-init.sh restart
+}
+
 # --- main ---
 cd /home/integ
 
@@ -36,29 +61,20 @@ touch "$lockfile"
 if [ ! -d "${REPOSITORY}" ]
 then
     $SU "git clone ${GITHUB} ${REPOSITORY} --branch $BRANCH"
+    deploy
     # install pm2 service.
-    $SU "pm2 start node_modules/.bin/ember --name 'frontend' -- serve --port 3000 --live-reload false --environment 'production' && pm2 save"
+    $SU "pm2 start $COMMAND --name 'frontend' -- $ARGS && pm2 save"
 else
-    $SU "cd $REPOSITORY ; git fetch origin && git reset --hard origin/$BRANCH && git clean --force"
+    $SU "cd $REPOSITORY ; git fetch origin"
+    # Check if remote is ahead
+    if [ $(git rev-list HEAD...origin/master --count) -ne 0 ]
+    then
+        # Code changed on the remote side
+        $SU "cd $REPOSITORY ; git reset --hard origin/$BRANCH && git clean --force"
+        deploy
+    fi
 fi
 
-cd ${REPOSITORY}
-# Install updates
-# copy configuration
-cp "$REPOSITORY/integration/nginx/sites-available/frontend" "/etc/nginx/sites-available/caliopen.frontend"
-cp "$REPOSITORY/integration/bin/check-and-restart" /root/check-and-restart-caliopen.frontend && \
-    chmod +x /root/check-and-restart-caliopen.frontend
-
-# Build project
-$SU "cd $REPOSITORY && \
-    npm prune && \
-    npm i && \
-    npm install bower@latest && \
-    bower install"
-
-echo "Restart $SERVICE" | logger -t CALIOPEN_FRONTEND
-service nginx restart
-service pm2-init.sh restart
 
 rm -f "$lockfile"
 trap - INT TERM EXIT
