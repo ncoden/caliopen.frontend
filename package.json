@@ -12,6 +12,7 @@
     "start": "ember server",
     "dev": "ember server --port 4200",
     "build": "ember build",
+    "release": "ember build --environment=\"production\"",
     "test": "ember test"
   },
   "repository": "",

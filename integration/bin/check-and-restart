@@ -1,0 +1,68 @@
+#!/bin/bash
+
+set -xe
+
+export LANG=C LC_ALL=C LC_MESSAGES=C
+
+PATH="/bin:/usr/sbin:/usr/bin"
+USER_="integ"
+SU="/bin/su $USER_ -c"
+
+procname=$(basename "$0")
+lockfile=/var/run/${procname/.sh/}.lock
+opwd=`pwd`
+
+# Repository declaration
+REPOSITORY=/srv/caliopen.frontend
+SERVICE=caliopen.frontend
+BRANCH="master"
+GITHUB=https://github.com/CaliOpen/caliopen.frontend.git
+LOGFILE=/var/log/${REPOSITORY/\/srv\//}.log
+
+# --- main ---
+cd /home/integ
+
+# Check lock file
+if [ -e $lockfile ]; then
+    echo "Sorry, $0 is already running." | logger -t CALIOPEN_FRONTEND
+fi
+# Create lock file
+trap "rm -f $lockfile; exit" INT TERM EXIT
+touch "$lockfile"
+
+
+# --- repository and service management
+
+if [ ! -d "${REPOSITORY}" ]
+then
+    $SU "git clone ${GITHUB} ${REPOSITORY} --branch $BRANCH"
+    # install pm2 service.
+    $SU "pm2 start node_modules/.bin/ember --name 'frontend' -- serve --port 3000 --live-reload false --environment 'production' && pm2 save"
+else
+    $SU "cd $REPOSITORY ; git fetch origin && git reset --hard origin/$BRANCH && git clean --force"
+fi
+
+cd ${REPOSITORY}
+# Install updates
+# copy configuration
+cp "$REPOSITORY/integration/nginx/sites-available/frontend" "/etc/nginx/sites-available/caliopen.frontend"
+cp "$REPOSITORY/integration/bin/check-and-restart" /root/check-and-restart-caliopen.frontend && \
+    chmod +x /root/check-and-restart-caliopen.frontend
+
+# Build project
+$SU "cd $REPOSITORY && \
+    npm prune && \
+    npm i && \
+    npm install bower@latest && \
+    bower install"
+
+echo "Restart $SERVICE" | logger -t CALIOPEN_FRONTEND
+service nginx restart
+service pm2-init.sh restart
+
+rm -f "$lockfile"
+trap - INT TERM EXIT
+
+cd $opwd
+exit 0
+
