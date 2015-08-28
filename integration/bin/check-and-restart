@@ -60,6 +60,7 @@ touch "$lockfile"
 
 if [ ! -d "${REPOSITORY}" ]
 then
+    echo "Install repository ${GITHUB}" | logger -t CALIOPEN_FRONTEND
     $SU "git clone ${GITHUB} ${REPOSITORY} --branch $BRANCH"
     deploy
     # install pm2 service.
@@ -69,9 +70,12 @@ else
     # Check if remote is ahead
     if [ $(git rev-list HEAD...origin/master --count) -ne 0 ]
     then
+        echo "Update repository ${GITHUB}" | logger -t CALIOPEN_FRONTEND
         # Code changed on the remote side
         $SU "cd $REPOSITORY ; git reset --hard origin/$BRANCH && git clean --force"
         deploy
+    else
+        echo "Nothing changed ${GITHUB}" | logger -t CALIOPEN_FRONTEND
     fi
 fi
 
