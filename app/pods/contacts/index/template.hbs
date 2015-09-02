@@ -9,7 +9,7 @@
             {{co-contact/card/avatar contact=contact}}
 
             {{#co-contact/card/title}}
-              {{#link-to 'contacts.show' contact}}{{contact.fullname}}{{/link-to}}
+              {{#co-layout/tabbable-link-to 'contacts.show' contact label=contact.fullname}}{{contact.fullname}}{{/co-layout/tabbable-link-to}}
             {{/co-contact/card/title}}
 
             {{co-contact/card/icons contact=contact}}
