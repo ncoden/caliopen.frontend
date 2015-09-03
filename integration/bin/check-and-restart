@@ -68,7 +68,7 @@ then
 else
     $SU "cd $REPOSITORY ; git fetch origin"
     # Check if remote is ahead
-    if [ $(git rev-list HEAD...origin/master --count) -ne 0 ]
+    if [ $(cd $REPOSITORY; git rev-list HEAD...origin/master --count) -ne 0 ]
     then
         echo "Update repository ${GITHUB}" | logger -t CALIOPEN_FRONTEND
         # Code changed on the remote side
