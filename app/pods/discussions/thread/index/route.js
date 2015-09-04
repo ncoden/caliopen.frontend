@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model: function (params) {
-    return this.store.findAll('message', { thread_id: params.thread_id });
+  model: function () {
+    return this.store.find('message', this.paramsFor('discussions.thread'));
   },
 
   actions: {
