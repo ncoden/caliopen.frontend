@@ -1,21 +1,5 @@
 <div class="container-fluid">
-    {{#each model as |message|}}
-      <div class="row caliopen-threads__thread">
-        <div class="col-md-7">
-          {{#link-to 'discussions.thread.message' message}}
-            <span class="caliopen-threads__thread--contacts">
-                {{ message.contact.title }},
-            </span>
-            <span class="caliopen-threads__thread--message-summary">
-              {{message.subject}}
-            </span>
-          {{/link-to}}
-        </div>
-        <div class="col-md-1">{{co-widget/icon icon="paperclip"}} </div>
-        <div class="col-md-2">
-          {{co-widget/icon title=(format-message (intl-get 'messages.index.list_item.importance_title' )) icon="warning-sign"}} {{message.importance}}
-          {{co-widget/icon title=(format-message (intl-get 'messages.index.list_item.privacy_title' )) icon="eye-open"}} {{message.privacy}}
-        </div>
-      </div>
-    {{/each}}
+  {{#each model as |message|}}
+    {{co-message/message message=message}}
+  {{/each}}
 </div>

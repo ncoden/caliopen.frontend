@@ -1,38 +1,25 @@
 import Ember from 'ember';
+import ContactHelper from 'caliopen-frontend/mixins/contact-helper';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(ContactHelper, {
   tagName: 'div',
 
-  classNames: ['caliopen-threads__thread__contact-icon'],
+  classNames: ['contact-icon'],
 
-  lettersClass: Ember.computed('contacts.@each.title', {
+  lettersStylesheetClass: Ember.computed('contacts.@each.title', {
     get: function () {
       if (!this.get('contacts')) {
         return [];
       }
 
-      let getLetter = (contact) => {
-        let letter = 'none';
-        if (contact.get('title')) {
-          letter = contact.get('title').substr(0, 1).toUpperCase();
-        }
-
-        if ('abcdefghijklmnopqrstuvwxyz'.toUpperCase().indexOf(letter) === -1) {
-          letter = 'none';
-        }
-
-        return letter;
-      };
-      let getClass = (letter) => `caliopen-letter--${letter}`;
-
       if (this.contacts.length > 4) {
-        let letters = this.contacts.slice(0, 3).map(getLetter);
-        letters.push('plus');
+        let letters = this.contacts.slice(0, 3).map(contact => this.getContactStylesheetClass(contact));
+        letters.push(this.getStylesheetClass('plus'));
 
-        return letters.map(getClass);
+        return letters;
       }
 
-      return this.contacts.slice(0, 4).map(getLetter).map(getClass);
+      return this.contacts.slice(0, 4).map(contact => this.getContactStylesheetClass(contact));
     }
   }),
   iconClass: Ember.computed('contacts.length', {
@@ -42,7 +29,7 @@ export default Ember.Component.extend({
       }
       let length = this.contacts.slice(0, 4).length;
 
-      return `caliopen-threads__thread__contact-icon__letter--${length}`;
+      return `contact-icon__letter--${length}`;
     }
   })
 });
