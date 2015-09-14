@@ -9,5 +9,6 @@ export default DS.Model.extend({
   read: DS.attr('boolean'),
   date: DS.attr('date'),
   date_insert: DS.attr('date'),
-  thread: DS.belongsTo('thread')
+  sender: DS.belongsTo('contact', { async: true }),
+  thread: DS.belongsTo('thread', { async: false })
 });

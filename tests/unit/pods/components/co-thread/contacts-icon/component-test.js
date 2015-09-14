@@ -31,7 +31,7 @@ test('it should display no contact icons', function () {
   // creates the component instance
   this.subject();
 
-  equal(this.$('.caliopen-threads__thread__contact-icon__letter').length, 0);
+  equal(this.$('.contact-icon__letter').length, 0);
 
 });
 
@@ -45,7 +45,7 @@ test('it should display one contact icon', function () {
     component.set('contacts', [Ember.Object.create({ title: 'John'})]);
   });
 
-  equal(this.$('.caliopen-threads__thread__contact-icon__letter').length, 1);
+  equal(this.$('.contact-icon__letter').length, 1);
 });
 
 test('it should display 4 contact icons or less', function () {
@@ -63,13 +63,13 @@ test('it should display 4 contact icons or less', function () {
     ]);
   });
 
-  equal(this.$('.caliopen-threads__thread__contact-icon__letter').length, 4);
+  equal(this.$('.contact-icon__letter').length, 4);
 
   ['L', 'B', 'F', 'D'].forEach((letter) => {
-    equal(this.$('.caliopen-threads__thread__contact-icon__letter').hasClass(CSS_LETTER_CLASS_FORMAT.replace('%s', letter)), true);
+    equal(this.$('.contact-icon__letter').hasClass(CSS_LETTER_CLASS_FORMAT.replace('%s', letter)), true);
   });
 
-  equal(this.$('.caliopen-threads__thread__contact-icon__letter').hasClass(CSS_LETTER_CLASS_FORMAT.replace('%s', 'plus')), false);
+  equal(this.$('.contact-icon__letter').hasClass(CSS_LETTER_CLASS_FORMAT.replace('%s', 'plus')), false);
 });
 
 test('it should display less than 5 contact icons', function () {
@@ -88,6 +88,6 @@ test('it should display less than 5 contact icons', function () {
     ]);
   });
 
-  equal(this.$('.caliopen-threads__thread__contact-icon__letter').length, 4);
-  equal(this.$('.caliopen-threads__thread__contact-icon__letter').hasClass(CSS_LETTER_CLASS_FORMAT.replace('%s', 'plus')), true);
+  equal(this.$('.contact-icon__letter').length, 4);
+  equal(this.$('.contact-icon__letter').hasClass(CSS_LETTER_CLASS_FORMAT.replace('%s', 'plus')), true);
 });
