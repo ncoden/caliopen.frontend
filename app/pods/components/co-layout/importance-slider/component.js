@@ -36,6 +36,7 @@ export default Ember.Component.extend({
     updateRange: function ([min, max]) {
       this.get('importance').set('min', min);
       this.get('importance').set('max', max);
+      this.sendAction('refreshStores');
     }
   }
 

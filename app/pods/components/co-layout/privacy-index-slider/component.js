@@ -36,6 +36,7 @@ export default Ember.Component.extend({
     updateRange: function ([min, max]) {
       this.get('privacyIndex').set('min', min);
       this.get('privacyIndex').set('max', max);
+      this.sendAction('refreshStores');
     }
   }
 
