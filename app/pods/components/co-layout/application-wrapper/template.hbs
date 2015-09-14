@@ -1,22 +1,15 @@
 <div class="caliopen-layout__main-topbar row">
   <div class="caliopen-layout__main-topbar__block--action col-md-2">
-    {{co-layout/main-action
-              currentApplication=currentApplication }}
+    {{co-layout/main-action currentApplication=currentApplication }}
   </div>
   <div class="caliopen-layout__main-topbar__block--privacy col-md-10">
-    {{co-layout/privacy-index-slider
-              currentApplication=currentApplication }}
+    {{co-layout/privacy-index-slider currentApplication=currentApplication refreshStores="refreshStores" }}
   </div>
 </div>
 
-<!-- FIXME unable to refresh view whithout displaying current indexes -->
-<div class="row">Current Privacy Index: {{privacy.min}}-{{privacy.max}}</div>
-<div class="row">Current importance: {{importance.min}}-{{importance.max}}</div>
-
 <div class="row">
   <div class="caliopen-layout__block--importance col-md-1 hidden-sm hidden-xs">
-    {{co-layout/importance-slider
-              currentApplication=currentApplication }}
+    {{co-layout/importance-slider currentApplication=currentApplication refreshStores="refreshStores" }}
   </div>
   <div class="caliopen-layout__block--container col-md-11 col-sm-12 col-xs-12">
     {{co-layout/tab-list currentApplication=currentApplication remove="closeTab"}}

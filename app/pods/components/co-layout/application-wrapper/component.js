@@ -25,13 +25,12 @@ export default Ember.Component.extend({
     }
   }),
 
-  needRefresh: Ember.observer('importanceService.max', 'importanceService.min',
-                             'privacyService.max', 'privacyService.min', function () {
-      this.sendAction('refreshStores');
-  }),
   actions: {
     closeTab: function(tab) {
       this.sendAction('closeTab', tab);
+    },
+    refreshStores: function() {
+      this.sendAction('refreshStores');
     }
   }
 });
