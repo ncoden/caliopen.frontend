@@ -1,23 +1,29 @@
-<div class="container-fluid">
-    {{#co-layout/application-panel/title}}{{format-message (intl-get 'contacts.index.title')}}{{/co-layout/application-panel/title}}
-    {{#co-contact/list contacts=model}}
+{{#co-contact/list contacts=model}}
 
-        {{#each model as |contact|}}
+  {{#each model as |contact|}}
+    <div class="row co-contact-list__item">
+      {{#co-contact/list/item contact=contact}}
 
-          {{#co-contact/list/item contact=contact}}
+      <div class="col-xs-4 col-sm-1">
+        {{#if contact.avatar_ul }}
+          {{co-contact/card/avatar contact=contact}}
+        {{else}}
+          {{co-contact/card/avatar-letter contact=contact}}
+        {{/if}}
+      </div>
 
-            {{co-contact/card/avatar contact=contact}}
+      <div class="col-xs-8 col-sm-11">
+        {{#co-contact/card/title}}
+          {{#co-layout/tabbable-link-to 'contacts.show' contact label=contact.fullname}}{{contact.fullname}}{{/co-layout/tabbable-link-to}}
+        {{/co-contact/card/title}}
+      </div>
+      <div class="col-xs-12 col-sm-11 col-sm-offset-1">
+        {{co-contact/card/icons contact=contact}}
+      </div>
 
-            {{#co-contact/card/title}}
-              {{#co-layout/tabbable-link-to 'contacts.show' contact label=contact.fullname}}{{contact.fullname}}{{/co-layout/tabbable-link-to}}
-            {{/co-contact/card/title}}
+      {{/co-contact/list/item}}
+    </div>
+  {{/each}}
 
-            {{co-contact/card/icons contact=contact}}
-
-          {{/co-contact/list/item}}
-
-        {{/each}}
-
-    {{/co-contact/list}}
-    {{outlet}}
-</div>
+{{/co-contact/list}}
+{{outlet}}

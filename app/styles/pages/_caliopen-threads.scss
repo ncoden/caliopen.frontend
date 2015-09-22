@@ -1,14 +1,10 @@
-$co-threads-contacts-icon-radius: 40px;
-$co-threads-contacts-icon-zIndex: 20;
-$co-threads-contacts-icon-circle-zIndex: 20;
-$co-threads-contacts-icon-letter-padding-size: 2px;
 $co-threads-read-color: darken($caliopen-color-1, 40);
 $co-threads-unread-color: lighten($caliopen-color-2, 30);
 
 .caliopen-threads__thread {
   height: 80px;
   border-bottom: 1px solid $body-bg;
-  padding: $co-threads-contacts-icon-radius * 0.25 0;
+  padding: 10px 0;
 
   a {
     color: $co-threads-read-color;

@@ -15,5 +15,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
     setupController: function (controller, model) {
       controller.setProperties(model);
+    },
+    actions: {
+     closeTab: function() { }
     }
 });

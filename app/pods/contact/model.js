@@ -17,7 +17,17 @@ export default DS.Model.extend({
 
   fullname: Ember.computed('firstname', 'lastname', {
     get: function () {
-      return `${this.get('firstname')} ${this.get('lastname')}`;
+      if (this.get('firstname') && this.get('lastname')) {
+        return `${this.get('firstname')} ${this.get('lastname')}`;
+      }
+
+      if (this.get('firstname')) {
+        return this.get('firstname');
+      }
+
+      if (this.get('lastname')) {
+        return this.get('lastname');
+      }
     }
   }),
 

@@ -18,5 +18,4 @@ module.exports = function(app) {
 
   mocks.forEach(function(route) { route(app); });
   proxies.forEach(function(route) { route(app); });
-
 };

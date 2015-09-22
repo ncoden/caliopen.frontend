@@ -1,3 +1,9 @@
+$co-threads-contacts-icon-radius: 40px;
+$co-threads-contacts-icon-zIndex: 20;
+$co-threads-contacts-icon-circle-zIndex: 20;
+$co-threads-contacts-icon-letter-padding-size: 2px;
+$contacts-avatar-size: 70px;
+
 .contact-icon {
   position: relative;
   width: $co-threads-contacts-icon-radius;
@@ -79,3 +85,25 @@
   .contact-icon__letter--4:nth-child(3)::before {
     margin-right: $co-threads-contacts-icon-letter-padding-size;
   }
+
+.contact-avatar {
+  border-radius: 2px;
+  position: relative;
+  width: $contacts-avatar-size;
+  height: $contacts-avatar-size;
+  line-height: $contacts-avatar-size;
+  background-color: $caliopen-color-3;
+}
+
+.contact-avatar__letter::before {
+  border-radius: 2px;
+  color: $caliopen-color-1;
+  font-size: $contacts-avatar-size * 0.75;
+  font-style: normal;
+  height: $contacts-avatar-size;
+  line-height: $contacts-avatar-size;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: $contacts-avatar-size;
+}

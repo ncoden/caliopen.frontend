@@ -1,6 +1,6 @@
 var _ = require('lodash');
 
-var contacts = require('../store/contacts');
+var contactStore = require('../store/contacts');
 
 module.exports = function(app) {
   var express = require('express');
@@ -16,7 +16,7 @@ module.exports = function(app) {
       min: parseInt(privacyHeader.split(':')[0], 10),
       max: parseInt(privacyHeader.split(':')[1], 10)
     };
-    req.contacts = contacts.filter(function (x) {
+    req.contacts = contactStore.contacts.filter(function (x) {
       return x.importance >= importance.min &&
              x.importance <= importance.max &&
              x.privacy >= privacy.min &&
@@ -66,6 +66,23 @@ module.exports = function(app) {
 
   contactsRouter.delete('/:id', function(req, res) {
     res.status(204).end();
+  });
+
+  contactsRouter.get('/:id/emails', function(req, res) {
+    var contact = _.find(req.contacts, {contact_id: req.params.id});
+    if (!contact) {
+      return res
+        .status(404)
+        .send({
+          message: 'Not Found'
+        });
+    }
+
+    var emails = _.filter(contactStore.emails, { contact_id: contact.contact_id });
+
+    return res
+      .status(200)
+      .send({ emails: emails });
   });
 
   app.use('/api/contacts', contactsRouter);

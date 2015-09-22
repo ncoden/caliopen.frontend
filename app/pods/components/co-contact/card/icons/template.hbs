@@ -1,4 +1,3 @@
-{{#each media as |medium|}}
-  {{co-contact/card/icons/icon medium=medium action="click"}}
+{{#each contact.emails as |email|}}
+  <li  action="click">{{co-widget/icon icon="envelope"}} {{email.address}}</li>
 {{/each}}
-
