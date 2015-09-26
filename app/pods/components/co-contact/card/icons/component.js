@@ -21,22 +21,6 @@ export default Ember.Component.extend({
    */
   contact: null,
 
-  /**
-   * Compute all contact media into an array.
-   *
-   * @return Array
-   */
-  media: Ember.computed('contact', {
-    get: function () {
-      var contact = this.get('contact');
-      if (!contact) {
-        return [];
-      }
-
-      return ['twitter', 'mail'];
-    }
-  }),
-
   actions: {
     /**
      * this is the default action bound to `co-contact-card-icons-icon`
